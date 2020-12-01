@@ -6,25 +6,163 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tcolorbox}
+\usepackage[thinc]{esdiff}
 
 \geometry{letterpaper, portrait, margin=1in}
 \graphicspath{ {images/} }
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Keerthik Muruganandam}
-\rhead{Written Work 10}
+\rhead{Written Work 12}
 
 
 \begin{document}
 
-\begin{enumerate}[label=\textbf{(10.\arabic*)}]
+\begin{enumerate}[label=\textbf{(12.\arabic*)}]
 
 
-    \item Let $f(x)$ be a function satisfying $1\le f^\prime(x) \ge4$ for all x. Prove that $5\le f(10)-f(5)\ge 20$.
-    \par
-    
-    
-    
+
+\item Let $f(x)$ be a function satisfying $1\le f^\prime(x) \le4$ for all x. Prove that $5\le f(10)-f(5)\le 20$.
+
+\par
+
+The MVT states that for $f(x)$ continuous on $[a,b]$ and differentiable on $(a,b)$, then $\dfrac{f(b)-f(a)}{b-a}=f^\prime(c)$ when $a<c<b$. From that we can attain the equation
+\[f^\prime(c)=\frac{f(10)-f(5)}{10-5}\text{.}\] %%% MVT EQUATION
+After simplifying a little bit, the equation turns into
+\[5\cdot f^{\prime}(c)=f(10)-f(5)\text{.}\] %%% SOLVE
+Now if we look back at the question, it states that $1\le f^\prime(x) \le4$ for \textit{all} x. This means that $c$ \textit{must} be between 1 and 4. Now if we substitute both the minimum and maximum values into our above equation, we get 2 equations,
+\[5=f(10)-f(5)\text{ and }20=f(10)-f(5)\text{.}\] %%% RANGE
+The above equations show that that $5\le 5\cdot f\prime(c)\le20$.
+\begin{tcolorbox}[colback=white]
+\[\therefore  5\le f(10)-f(5)\le20\text{.}\] %%% SOLUTION
+\centering
+\end{tcolorbox}
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Find $\lim_{x\to0^{+}} {\left(\ln{(x)}\sin{(x)}\right)}$ using L'Hospital's rule. If it's not possible  to find the limit, explain why.\\
+
+First we need to check if $\lim_{x\to0^{+}} {\left(\ln{(x)}\sin{(x)}\right)}$ is an indeterminate limit. To do that, we try to naively substitute terms.
+\[\lim_{x\to0^{+}} {\ln{(0)}\sin{(0)}}=\lim_{x\to0^{+}} {\infty\cdot0}\]
+Since there is a contradiction between $0\cdot\infty$, $\lim_{x\to0^{+}} {\left(\ln{(x)}\sin{(x)}\right)}$ is an indeterminate limit. %%% INDETERMINATE
+The next step is to transform the limit into a form where we can apply L'Hospital's rule. If we apply the property $a\cdot b=\frac{a}{\frac{1}{b}}$, we get the limit
+\[\lim_{x\to0^{+}} {\left(\frac{\ln{(x)}}{\frac{1}{\sin{(x)}}}\right)}=\lim_{x \to 0^+} {\frac{\ln{(x)}}{\csc{(x)}}}\] %%% A/B FORM
+The second check is to confirm that the numerator and denominator are differentiable at $0^+$.\
+\[\diff{}{x}\left(\ln{(x)}\right)=\frac{1}{x} \rightarrow \frac{1}{0}=\infty\]
+\[\diff{}{x}\left(\csc{(x)}\right)=-\cot{(x)}\csc{(x)} \rightarrow -\infty\cdot \infty = -\infty\] %%% DIFFERENTIABLE
+Now we differentiate both the numerator and the denominator because we know they are differentiable to produce
+\begin{align*}
+\lim_{x \to 0^+} {\frac{\frac{1}{x}}{-\cot{(x)}\csc{(x)}}}&=\lim_{x \to 0^+} {-\frac{1}{x\cot{(x)}\csc{(x)}}} \\
+&=\lim_{x \to 0^+} {\frac{\tan{(x)}\sin{(x)}}{-x}} \\
+&=\lim_{x \to 0^+} {\frac{\sin^2{(x)}}{x\cos{(x)}}}
+\end{align*} %%% DIFFERENTIATION
+Notice that the limit still cannot be found in the current form. The reasonable solution is to apply L'Hospital's rule again. Of course, we still need to complete the preliminary checks. First to determine whether the limit is still indeterminate, we can naively substitute once more.
+\[\lim_{x \to 0^+} {\frac{\sin^2{(0)}}{0\cdot\cos{(0)}}}=\lim_{x \to 0^+} {\frac{0^2}{0\cdot1}}=\lim_{x \to 0^+} {\frac{0}{0}}\]
+As $\frac{0}{0}$ is an indeterminate form, the limit is still indeterminate. Now we check if the numerator and denominator are still differentiable at $0^+$. %%% INDETERMINATE
+\[\diff{}{x}\sin^2{(x)}=2\sin{(x)}\cos{(x)} \Rightarrow 2\cdot0\cdot1=0\]
+\[\diff{}{x}x\cos{(x)}=\cos{(x)}-x\sin{(x)} \Rightarrow 1-0\cdot0=1\]
+As you can see, the numerator and denominator \textbf{are} differentiable. After applying L'Hospital's rule, we obtain the limit %%% DIFFERENTIABLE
+\[\lim_{x \to 0^+} {\frac{2\sin{(x)}\cos{(x)}}{\cos{(x)}-x\sin{(x)}}}\] %%% DIFFERENTIATION
+This is a form that we \textbf{can} solve for the limit without achieving an indeterminate form.
+\[\lim_{x \to 0^+} {\frac{2\cdot0\cdot1}{1-0}}=\lim_{x \to 0^+} {\frac{0}{1}}=\lim_{x \to 0^+} {0}=0\] %%% SIMPLIFY
+\begin{tcolorbox}[colback=white]
+As you can see, $\lim_{x\to0^{+}} {\left(\ln{(x)}\sin{(x)}\right)}=0$. %%% SOLUTION
+\centering
+\end{tcolorbox} 
+\bigskip
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+\item Find $\lim_{x\to0^+} {\left(\dfrac{x}{x+1}\right)}^x$ using L'Hospital's rule. If it's not possible to find the limit, explain why.
+
+\par
+
+Again, the first step is to define whether the limit produces an indeterminate form.
+\[\lim_{x \to 0^+} {{\left(\frac{0}{1}\right)}^0}=\lim_{x \to 0^+} {0^0}\]
+As $0^0$ is an indeterminate form, we can move on to the second stage of turning the limit into a form where L'Hospital's form is applicable. %%% INDETERMINATE
+First we raise e to the power of the $\lim_{x\to0^+} {\left(\dfrac{x}{x+1}\right)}^x$ to add in an $\ln{(x)}$ to get rid of the exponent
+\[\lim_{x\to0^+} {\left(\dfrac{x}{x+1}\right)}^x=\text{e}^{\ln\left(\lim_{x\to0^+} {\left(\dfrac{x}{x+1}\right)}^x\right)}=\text{e}^{\lim_{x\to0^+} {\left(x\ln{\left(\frac{x}{x+1}\right)}\right)}}\]
+Disregard e for the moment and focus on the limit. If we use the property $a\cdot b=\frac{a}{\frac{1}{b}}$, then we get the limit
+\[\lim_{x \to 0^+} {\frac{\ln{\frac{x}{x+1}}}{\frac{1}{x}}}\text{.}\]
+This limit is now in a form we can use L'Hospital's rule on. %%%% A/B FORM
+ But before that, first we need to check if $\ln{\frac{x}{x+1}} \text{ and } \frac{1}{x}$ are differentiable near $0^+$.
+\[\diff{}{x}\left(\ln{\left(\frac{x}{x+1}\right)}\right)=\frac{1}{\frac{x}{x+1}}\cdot\frac{1}{(x+1)^2}=\frac{1}{x(x+1)}\]
+\[\diff{}{x}\left(\frac{1}{x}\right)=-1\cdot x^{-2}=-\frac{1}{x^2}\]
+Now solve for 0 for both of them, and determine whether they are differentiable.
+\[\frac{1}{0\cdot1}=\infty \text{ and } -\frac{1}{0^2}=-\infty\]
+Thus both the nominator and denominator are differentiable at $0^+$.  %%% DIFFERENTIABLE
+After obtaining the derivatives, we shall substitute them in to provide the limit.
+\[\lim_{x \to 0^+} {\frac{\frac{1}{x(x+1)}}{-\frac{1}{x^2}}}\]
+Simplifying the limit gives us
+\[\lim_{x \to 0^+} {\frac{1}{x(x+1)}\cdot-\frac{x^2}{1}}=\lim_{x \to 0^+} {-\frac{x^2}{x(x+1)}}=-\lim_{x \to 0^+} {\frac{x}{x+1}}\] %%% DIFFERENTIATION
+We can evaluate this limit now to find the value of the original limit.
+\[-\lim_{x \to 0^+} {\frac{0}{0+1}}=-\lim_{x \to 0^+} {\frac{0}{1}}=-\lim_{x \to 0^+} {0}=-0=0\] %%% SIMPLIFY
+Now that we have also verified that $\lim_{x\to0^+} {\frac{f^\prime(x)}{g^\prime(x)}}$ exists, we now safely say that
+\[\lim_{x \to 0^+} {\left(x\ln{\left(\frac{x}{x+1}\right)}\right)}=0\] %%% SOLUTION PT. 1
+After substituting 0 into our original expression containing e, we get
+\[e^0=1\] 
+\begin{tcolorbox}[colback=white]
+The limit $\lim_{x\to0^+} {\left(\dfrac{x}{x+1}\right)}^x=1$ %%% SOLUTION
+\centering
+\end{tcolorbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+
+
+
+\item \textbf{Professional Problem:}
+
+\begin{enumerate}[label=(\alph*)]
+
+
+
+\item \textbf{Formatting Long Computations} 
+\begin{align*}
+f^\prime(x) &= \lim_{h \to 0} \frac{f(x+h)-f(x)}{h} \\
+&= \lim_{h \to 0} \frac{{\left(x+h\right)}^2-x^2}{h} \\
+&= \lim_{h \to 0} \frac{x^2+2xh+h^2-x^2}{h} \\
+&= \lim_{h \to 0} \frac{2xh+h^2}{h} \\
+&= \lim_{h \to 0} \frac{h\left(2x+h\right)}{h} \\
+&= \lim_{h \to 0} 2x+h \\
+&= 2x
+\end{align*}
+
+
+\item \textbf{Inline Mathematics, Symbols, and Grammar} \\
+
+Since $f^\prime(2)=3$, and $f(2)=4$, the point-slope equation of the tangent line to $y=f(x)$ at $x=2$ is
+\[y-4 = 3 \left(x-2\right)\text{.}\]
+To find the slope intercept form we can solve for y:
+\begin{align*}
+y&=4+3\left(x-2\right)\\
+&=3x-6+4\\
+&=3x-2
+\end{align*}
+
+
+\item \textbf{Ambiguous References} \\
+
+Suppose $g(x)$ is continuous on $\left[a,b\right]$ and differentiable on $\left(a,b\right)$. If $g(1)=4$, and $g(3)=8$, then there is a value $c$ in between 1 and 3 such that the derivative at $c$ is 2. \\
+
+
+\item \textbf{Common Reasons for Mistakes} \\
+
+One major theme in my homework was that I was unclear about what steps I was actually taking, and how they related to the solution of the problem. Also, I didn't explain how my solution actually worked in the final wrap-up paragraph, and oftentimes made statements that needed explanation but didn't expound on them. \\
+
+
+\item \textbf{Pledge} \\
+
+I have pledged.
+
+
+
+
+\end{enumerate}
+   
 \end{enumerate}
 
 \end{document}
