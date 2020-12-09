@@ -19,9 +19,10 @@
 \begin{document}
 
 \begin{enumerate}[label=\textbf{(13.\arabic*)}]
-    \item If $a$ and $b$ are positive numbers, find the maximum value of $f(x)=x^a(1-x)^b$, $0\le x\le 1$.
-    
-    We will complete the first derivative test to find the Critical Points
+
+\item If $a$ and $b$ are positive numbers, find the maximum value of $f(x)=x^a(1-x)^b$, $0\le x\le 1$.
+
+To find critical points, we will take the derivative of the function $f(x)=x^a(1-x)^b$, and solve for 0.
 \begin{align*}
 f^\prime(x)&=\diff{ }{x}\left(x^a(1-x)^b\right) \\
 &=\diff{ }{x}\left(x^a\right)(1-x)^b+\diff{ }{x}\left((1-x)^b\right)x^a \\
@@ -31,9 +32,33 @@ f^\prime(x)&=\diff{ }{x}\left(x^a(1-x)^b\right) \\
 &=x^{a-1}(1-x)^{b-1}[a-x(a+b)] \\
 \end{align*}
 Now to find the critical points, we must solve for $f^\prime=0$.
-\[x^{a-1}(1-x)^{b-1}[a-x(a+b)=0\]
-For $f^\prime(x)=0$ to be true, either $x^{a-1}$, $(x-1)^{b-1}$, or $a-x(a+b)$ must equal 0. 
-\[\therefore x=0\text{ or }x=1\text{ or }x=\frac{a}{a+b}\text{, }a+b\neq0\]
+\[x^{a-1}(1-x)^{b-1}[a-x(a+b)]=0\]
+From here we can see that x must either equal 0, 1 , or $\dfrac{a}{a+b}$. Because we are trying to find the maximum on the interval [0,1], the critical points must be on the open interval (0,1). Thus, we can eliminate $x=0$ and $x=1$ from the pool of possible critical points, leaving $x=\dfrac{a}{a+b}$ as the only possible critical point on the interval.\\
+Now that we have our critical point, we can just solve $f(\dfrac{a}{a+b})$ to find the possible maximum of the function in the interval $0\le x\le 1$.
+\begin{align*}
+f\left(\frac{a}{a+b}\right)&={\left(\frac{a}{a+b}\right)}^a{\left(1-\frac{a}{a+b}\right)}^b \\
+&={\left(\frac{a}{a+b}\right)}^a{\left(\frac{b}{a+b}\right)}^b \\
+&= \frac{a^a}{{\left(a+b\right)}^a}\cdot\frac{b^b}{{\left(a+b\right)}^b} \\
+&=\frac{a^ab^b}{{\left(a+b\right)}^{a+b}}
+\end{align*}
+To determine whether $\dfrac{a}{a+b}$ is a maximum, we must check if $f(0) \text{ and } f(1)$ are greater than $f\left(\dfrac{a}{a+b}\right)$.
+\begin{align*}
+f(0)&=0^a(1-0)^b \\
+&=0\cdot1^b \\
+&=0 \\
+f(1)&=1^a(1-1)^b \\
+&=1^a\cdot0
+&=0
+\end{align*}
+Now we know that $\dfrac{a}{a+b}$ is the maximum point because $a \text{ and } b$ are positive numbers and thus are greater than 0.
+\begin{tcolorbox}[colback=white]
+The maximum value of  $f(x)=x^a(1-x)^b$, $0\le x\le 1$ is $\dfrac{a^ab^b}{{\left(a+b\right)}^{a+b}}$
+\centering
+\end{tcolorbox}
+
+\par
+Next Page.$ \rightarrow$
+
 
 \end{enumerate}
 
