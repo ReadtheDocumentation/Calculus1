@@ -4,9 +4,10 @@
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{enumitem}
-\usepackage{amsmath}	
+\usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
+\usepackage{amssymb}
 \usepackage[thinc]{esdiff}
 
 \geometry{letterpaper, portrait, margin=1in}
@@ -18,12 +19,22 @@
 \begin{document}
 
 \begin{enumerate}[label=\textbf{(13.\arabic*)}]
-    \item If $a$ and $b$ are positive numbers, find the maximum value of $f(x)=x^a(x-1)^b$, $0\le x\le 1$.
+    \item If $a$ and $b$ are positive numbers, find the maximum value of $f(x)=x^a(1-x)^b$, $0\le x\le 1$.
     
     We will complete the first derivative test to find the Critical Points
-    \[\diff{}{x}\left(f(x)=x^a(x-1)^b\right)=\]
-\[\diff{}{x}\left(x^a\right)(x-1)^b+\diff{}{x}\left((x-1)^b\right)x^a=\]
-\[(ax^{a-1})(x-1)^b+b(x-1)^{b-1}\diff{}{x}(x-1)x^a=\]
+\begin{align*}
+f^\prime(x)&=\diff{ }{x}\left(x^a(1-x)^b\right) \\
+&=\diff{ }{x}\left(x^a\right)(1-x)^b+\diff{ }{x}\left((1-x)^b\right)x^a \\
+&=(ax^{a-1})(1-x)^b+b(1-x)^{b-1}\diff{ }{x}(1-x)x^a \\
+&=-x^ab(1-x)^{b-1}+a(x-1)^bx^{a-1} \\
+&=x^{a-1}(1-x)^{b-1}[(1-x)a-bx] \\
+&=x^{a-1}(1-x)^{b-1}[a-x(a+b)] \\
+\end{align*}
+Now to find the critical points, we must solve for $f^\prime=0$.
+\[x^{a-1}(1-x)^{b-1}[a-x(a+b)=0\]
+For $f^\prime(x)=0$ to be true, either $x^{a-1}$, $(x-1)^{b-1}$, or $a-x(a+b)$ must equal 0. 
+\[\therefore x=0\text{ or }x=1\text{ or }x=\frac{a}{a+b}\text{, }a+b\neq0\]
+
 \end{enumerate}
 
 
