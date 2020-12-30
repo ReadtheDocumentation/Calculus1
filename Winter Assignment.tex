@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage[thinc]{esdiff}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Winter Assignment}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{WS \arabic*}]
+
+\item What is the slope of the secant line through the points $(a\text{, } f(a)) \text{ and } (a+h\text{, } f(a+h))$?
+
+The formula for the slope of the line segment between two points $(x_1\text{, } y_1) \text{ and } (x_2, y_2)$ is
+\[\frac{y_2-y_1}{x_2-x_1}\]
+Thus the slope of the secant line is
+\[\frac{f(a+h)-f(a)}{a+h-a}=\frac{f(a+h)-f(a)}{h}\]
+That is in the form of the MVT so we know that the slope of the secant line is the derivative of some point c within $(a,a+h)$
+\[f^\prime(c)=\frac{f(b)-f(a)}{b-a} \text{ in } (a\text{ , }b)\text{ and differentiable in } [a,b]\text{.}\]
+
+\item What is the slope of the tangent line to the graph
+of $f(x)$ at the point $x=\text{a}$?
+
+ The limit definition of the derivative is
+\[\lim_{h \to 0} {\frac{f(x+h)-f(x)}{h}}\]
+So the slope of the tangent line to the graph of $f(x)$ at the point $x=a$ is
+\[\lim_{h \to 0} {\frac{f(a+h)-f(a)}{h}}\]
+
+\item Use a calculator to compute $\sqrt{4.1}$. How does this compare to our estimate? Was our approximation an overestimate or an underestimate?
+
+The calculator computes $\sqrt{4.1}$ as $2.02484567313$. Compared to our estimate the real value is slightly over our estimate. The approximation was an overestimate.
+
+\item Explain how concavity relates to the linearization of $f(x)$ being an overestimate or an underestimate.
+
+Because $f(x)$ was concave down, the graph curves away from the tangent line in a negative fashion because the downwards concavity means that the slope of the tangent lines will be decreasing so the function flattens out in the horizontal rather than the vertical which means that it turns away from the previous tangent lines.
+
+\item Use Newton's method to approximate 	
+
+\end{enumerate}
+
+
+\end{document}
