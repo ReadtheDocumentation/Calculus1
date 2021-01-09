@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage[thinc]{esdiff}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Written Work X}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(13.\arabic*)}]
+
+\end{enumerate}
+
+
+\end{document}
+
+abc: 
+\begin{enumerate}[label=(\alph*)]
+
+\end{enumerate}
+
+align:
+\begin{align*}
+
+&= 2+2 \\
+
+\end{align*}
+
