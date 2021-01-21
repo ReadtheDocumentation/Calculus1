@@ -16,11 +16,11 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Keerthik Muruganandam}
-\rhead{Written Work X}
+\rhead{Yadavalli Written Work X}
 
 \begin{document}
 
-\begin{enumerate}[label=\textbf{(13.\arabic*)}]
+\begin{enumerate}[label=\textbf{(X.\arabic*)}]
 
 \end{enumerate}
 
@@ -39,3 +39,13 @@ align:
 
 \end{align*}
 
+Integrals:
+
+\int_{a}^b \! (f(x)) \, \text{d}x
+
+images:
+
+\begin{figure}
+\centering
+\includegraphics{name.py}
+\end{figure}
