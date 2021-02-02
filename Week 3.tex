@@ -1,0 +1,184 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{amssymb}
+\usepackage[thinc]{esdiff}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Homework 3}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(3.\arabic*)}] %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Evaluate the definite integral: $\displaystyle{ \int_0^2\! t^3\sqrt{9+t^4}\, dt }$.
+
+For this problem we can use u substitution. Let $u=9+t^4$ to simplify the radicand in the integrand. Subsequently we have to find the value of $du$
+
+\[\diff{u}{t}=4t^3\text{, therefore } du=4t^3dx\]
+
+Now we must manipulate the integrand to contain the value $4t^3$. This can be achieved by multiplying by 1, or $\dfrac{4}{4}$.
+
+\begin{align*}
+\int_0^2\!t^3\sqrt{9+t^4}\,dt&=\int_0^2\!\frac{4}{4}\cdot t^3\sqrt{9+t^4}\, dt \\
+&=\int_0^2\!\frac{1}{4}\cdot 4t^3\sqrt{9+t^4}\, dt \\
+&=\frac{1}{4}\int_0^2\!\sqrt{u}\, du
+\end{align*}
+
+We have done this via the Substitution rule which states that $\displaystyle{\int f\left(g\left(x\right)\right)g^\prime(x)dx = \int f(u)du }$ if $u=g(x)$. Now we must adjust the bounds of the integral which is accomplished by applying the function $u$ to the bounds.
+
+\begin{align*}
+x&=0: 9+0^4=9 \\
+x&=2: 9+2^4=25
+\end{align*}
+
+Now we are done with the setup to simplifying the process of integrating this, we can see that we have an entirely new, simple integral left: $\displaystyle{ \int_9^{25}\! \sqrt{u}\,du}$. All that is left is to evaluate the integral.
+
+\begin{align*}
+\frac{1}{4}\int_9^{25}\!\sqrt{u}\,du&=\frac{1}{4}\left[\frac{2u^\frac{3}{2}}{3}\right]_9^{25} \\
+&=\frac{1}{4}\left(\frac{2\cdot5^3}{3}-\frac{2\cdot3^3}{3}\right) \\
+&=\frac{1}{4}\left(\frac{250}{3}-\frac{54}{3}\right) \\
+&=\frac{1}{4}\left(\frac{196}{3}\right) \\
+&=\frac{49}{3}
+\end{align*}
+
+Thus, we can see the value of the definite integral is $\dfrac{49}{3}$.
+\newline
+\begin{center}
+Problem 2 on next page. $\rightarrow$
+\end{center}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Evaluate the indefinite integral: $\displaystyle{ \int\!\frac{e^{2x}}{\left(e^x+1\right)^2}\,dx}$.
+
+Using the same method as last time, we define $u$ as $e^x+1$. Then we find the value of $du$ which is $e^xdx$. Then we simplify
+\begin{align*}
+\frac{e^{2x}}{\left(e^x+1\right)^2}dx &= \frac{e^x\cdot e^x}{\left(e^x+1\right)^2} \,dx \\
+&= \frac{e^x}{\left(e^x+1\right)^2}e^x\,dx \\
+&=\frac{e^x}{u^2}\,du
+\end{align*}
+To get rid of the $e^x$ we can use our equation from before, $u=e^x+1$, to get $u-1=e^x$.
+\begin{align*}
+\int\!\frac{e^x}{u^2}\,du &= \int\!\frac{u-1}{u^2}\,du
+\end{align*}
+Now that we have the $u$ form of the integrand, next we split the numerator into two separate integrals.
+\begin{align*}
+\int\!\frac{u-1}{u^2}\,du &= \int\!\frac{u}{u^2}-\frac{1}{u^2}\,du \\
+&=\int\!\frac{1}{u}-u^{-2}\,du \\
+&=\int\!\frac{1}{u}\,du-\int\!u^{-2}\,du
+\end{align*}
+
+The final step is to evaluate the antiderivative of both integrals and combine them. We can use the power rule for $u^{-2}$ and we already know that the antiderivative of $\dfrac{1}{u}$ is $\ln|u|$.
+\begin{align*}
+\int\!\frac{1}{u}\,du-\int\!u^{-2}\,du &= \ln|u|+C-\left(\frac{u^{-1}}{-1}\right)+C \\
+&= \ln|u|+\frac{1}{u}+C \\
+&= \ln\left(\left|e^x+1\right|\right)+\frac{1}{e^x+1}+C
+\end{align*}
+
+Now we have simplified and added a constant $C$ to our equation, so the final answer is
+\[\int\!\frac{e^{2x}}{\left(e^x+1\right)^2}\,dx=\ln\left(\left|e^x+1\right|\right)+\frac{1}{e^x+1}+C\]
+\newline
+\begin{center}
+Problem 3 on next page. $\rightarrow$
+\end{center}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item Prove the following two statements
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\displaystyle{ \int\!\frac{1}{x\ln(x)}\,dx=\ln\left(\left|\ln(x)\right|\right)+C}$.
+\item Prove $\displaystyle{ \int_a^{a^2}\!\frac{1}{x\ln(x)}\,dx=\ln(2) }$ for any $a>1$. \\
+\newline
+\end{enumerate}
+
+\begin{enumerate}[label=(\alph*)]
+\item To prove that $\displaystyle{ \int\!\frac{1}{x\ln(x)}\,dx=\ln\left(\left|\ln(x)\right|\right)+C}$ we need to turn $\displaystyle{ \int\!\frac{1}{x\ln(x)}\,dx }$ into $\ln\left(\left|\ln(x)\right|\right)$. To do that let us use u-substitution to calculate the value of the indefinite integral.
+\newline
+Let $u=\ln(x)$. Then $du$ is $\dfrac{1}{x}\,dx$. This is really simple because both $u$ and $du$ are in the integrand so there is no algebra required. The new integral is
+\[\int\!\frac{1}{u}\,du\]
+Now we take the antiderivative of $\dfrac{1}{u}$ which is simply $\ln(|u|)$ and add $C$ to get the expression
+\[\ln(|u|)+C\]
+Finally, we substitute the value for $u$ back in to get a final value of
+\[\ln\left(\left|\ln(x)\right|\right)+C\]
+Thus, we have proved that $\displaystyle{ \int\!\frac{1}{x\ln(x)}\,dx=\ln\left(\left|\ln(x)\right|\right)+C}$. \\%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newline
+\item We found the antiderivative to the integrand of the definite integral in part $(a)$, so we can skip straight to the Evaluation Theorem. First, however we must split the integrals into two terms
+\[\int_a^{a^2}\!\frac{1}{x\ln(x)}\,dx=\int_0^{a^2}\!\frac{1}{x\ln(x)}\,dx-\int_0^a\!\frac{1}{x\ln(x)}\,dx\]
+Next apply the Evaluation Theorem to the integrals to get the expression using the antiderivative that we found in part $(a)$.
+\[\left(\ln\left|\ln\left(a^2\right)\right|-\ln\left|\ln\left(0\right)\right|\right)-\left(\ln\left|\ln(a)\right|-\ln\left|\ln(0)\right|\right)\]
+This simplifies to
+\[\ln\left|2\ln(a)\right|-\ln\left|\ln(a)\right|\]
+Using the Product rule we can separate the logarithms leaving us with
+\[\ln\left|2\ln(a)\right|-\ln\left|\ln(a)\right|=\ln(2)+\left(\ln\left|\ln(a)\right|-\ln\left|\ln(a)\right|\right)=\ln(2)\]
+However, $a$ cannot be $1$ because if $a=1$ then $a^2=a$, therefore the integral is equal to 0 due to the bounds being equal. Thus, $\displaystyle{ \int_a^{a^2}\!\frac{1}{x\ln(x)}\,dx=\ln(2) }$ for $a>1$. This can also be expressed as $a\neq 1$. Otherwise, $a$ can be any value.
+\newline
+\begin{center}
+Problem 4 on next page. $\rightarrow$
+\end{center}
+\end{enumerate}
+
+\newpage %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\item \textbf{Professional Problem:} Suppose $f$ is continuous and $\displaystyle{ \int_1^4\!f(x)\,dx=7}$.
+\begin{enumerate}[label=(\alph*)]
+\item Calculate $\int_{-1}^2\!xf(x^2)\,dx$.
+\item Calculate $\int_1^2\!xf(x^2)\,dx$.
+\item Explain why your answers are the same.
+\end{enumerate}
+
+\begin{enumerate}[label=(\alph*)]
+\item We can use $u$ substitution for this  problem again. Let $u=x^2$. Then, we find $du$ which is
+\begin{align*}
+\diff{u}{x}&=2x \\
+\end{align*}
+Utilizing some more algebra, $du = 2x\,dx$. To substitute $du$ into the integral using the Substitution Rule, we must use algebra to force a $2x$ into the integrand. To do this, we multiply the integral by $\frac{2}{2}$ which creates the expression
+\begin{align*}
+\int_{-1}^2\!\frac{2}{2}\cdot xf\left(x^2\right)\,dx &= \int_{-1}^2\!\frac{1}{2}\cdot2xf\left(x^2\right)\,dx \\
+&= \frac{1}{2}\int_{-1}^2\!f\left(u\right)\,du
+\end{align*}
+Now that the integral is in respect to $u$, we must adjust the bounds of the integral, $(a,b)$, by applying $g(x)$ so the new bounds are $\left(g(a),g(b)\right)$. Squaring the values because $g(x)=x^2$, our new bounds are $(4,1)$. Our integral is $\frac{1}{2}\int_1^4\!f(u)\,du$. Using the definition of the integral, it evaluates to
+\begin{align*}
+\frac{1}{2}\cdot7&=3.5
+\end{align*}
+Thus the integral is equal to 3.5.
+
+\item As the integrand of the integral is same as the prior, we know that the integral after $u$ substitution is 
+\begin{align*}
+\frac{1}{2}\int_1^2\!f(u)\,du
+\end{align*}
+Now we adjust the bounds by squaring them to get the integral
+\begin{align*}
+\frac{1}{2}\int_1^4\!f(u)\,du
+\end{align*}
+This is the same expression as in part $(a)$, and the same integral from the problem statement. Therefore, we already know the value of this expression, which is 3.5.
+
+\item Let 
+\begin{align*}
+\int_{-1}^2\! xf\left(x^2\right) \, dx &= \int_1^2\! xf\left(x^2\right) \, dx +  \int_{-1}^1\! xf\left(x^2\right) \, dx
+\end{align*}
+Using $u$ substitution, our equation becomes
+\begin{align*}
+ \int_1^4\! f\left(u\right) \, du &=  \int_1^4\! f\left(u\right) \, du +  \int_1^1\! f\left(u\right) \, du
+\end{align*}
+Notice that the bounds of the third integral have become equal. Therefore, the value of that integral is 0. Restating, the equation becomes
+\begin{align*}
+ \int_1^4\! f\left(u\right) \, du =  \int_1^4\! f\left(u\right) \, du
+\end{align*}
+Our answers for $(a)$ and $(b)$ are the same because the integral of the integrand is equal to 0 with the bound $(-1,1)$. Thus, $\int_{-1}^2\!f(u)\,du=0+\int_1^2\!f(u)\,du$ and $(a)$ and $(b)$ are equivalent.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
