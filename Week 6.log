@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.22)  24 FEB 2021 17:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.22)  26 FEB 2021 13:28
 entering extended mode
 **"./Week 6.tex"
 ("Week 6.tex"
@@ -502,8 +502,7 @@ tex.def
 File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box67
-)
-No file "Week 6".aux.
+) ("Week 6.aux")
 \openout1 = `"Week 6.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
@@ -520,6 +519,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -593,9 +593,9 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [2] [3]
 [4] ("Week 6.aux") ) 
 Here is how much of TeX's memory you used:
- 14046 strings out of 479618
- 270827 string characters out of 2865026
- 566322 words of memory out of 3000000
+ 14048 strings out of 479618
+ 270880 string characters out of 2865026
+ 566313 words of memory out of 3000000
  30989 multiletter control sequences out of 15000+200000
  405437 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
