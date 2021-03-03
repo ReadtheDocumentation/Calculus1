@@ -1,0 +1,22 @@
+abc: 
+\begin{enumerate}[label=(\alph*)]
+
+\end{enumerate}
+
+align:
+\begin{align*}
+
+&= 2+2 \\
+
+\end{align*}
+
+Integrals:
+
+\int_{a}^b \! (f(x)) \, \text{d}x
+
+images:
+
+\begin{figure}[H]
+\centering
+\includegraphics{name.py}
+\end{figure}
