@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.22)  26 FEB 2021 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 21.1) (preloaded format=pdflatex 2021.2.22)  9 MAR 2021 20:43
 entering extended mode
-**"./Week 6.tex"
-("Week 6.tex"
+**"./Week 8.tex"
+("Week 8.tex"
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-01-09> xparse <2020-03-03>
 (C:\Users\keert\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -502,23 +502,23 @@ tex.def
 File: l3backend-pdftex.def 2021-01-09 L3 backend support: PDF output (pdfTeX)
 \l__kernel_color_stack_int=\count287
 \l__pdf_internal_box=\box67
-) ("Week 6.aux")
-\openout1 = `"Week 6.aux"'.
+) ("Week 8.aux")
+\openout1 = `"Week 8.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -590,29 +590,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 [1{C:/Users/keert/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
-] [2] [3]
-[4] ("Week 6.aux") ) 
+] ("Week 8.aux") ) 
 Here is how much of TeX's memory you used:
  14048 strings out of 479618
  270880 string characters out of 2865026
- 566313 words of memory out of 3000000
+ 552313 words of memory out of 3000000
  30989 multiletter control sequences out of 15000+200000
  405437 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 86i,11n,89p,444b,345s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/keert/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb><C:/Users/keert/AppData/Local/Programs/MiKTeX/font
-s/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/keert/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/keert/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/keert/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/keert/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users
-/keert/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Users/keert/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-sy7.pfb>
-Output written on "Week 6.pdf" (4 pages, 97907 bytes).
+ 86i,11n,89p,444b,236s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/keert/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Users/keert/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/keert/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/keert/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/keert/AppData/Loca
+l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on "Week 8.pdf" (1 page, 54460 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
