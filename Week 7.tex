@@ -18,13 +18,13 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Keerthik Muruganandam}
-\rhead{Yadavalli Written Work 6}
+\rhead{Yadavalli Written Work 7}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN DOCUMENT
 
 \begin{document}
 
-\begin{enumerate}[label=\textbf{(6.\arabic*)}]
+\begin{enumerate}[label=\textbf{(7.\arabic*)}]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7.1 PROBLEM STATEMENT
 
@@ -66,8 +66,90 @@ The equation for the arc length is then
 L &= \int_0^3\!\sqrt{1+\left(\frac{1}{2}(e^x-e^{-x})\right)^2}\,dx \\
 &= \int_0^3\!\sqrt{\frac{4+e^{2x}-2+e^{-2x}}{4}}\,dx\\
 &= \frac{1}{2}\int_0^3\!\sqrt{e^{2x}+2+e^{-2x}}\,dx\\
-&= \frac{1}{2}\int_0^3\!
+&= \frac{1}{2}\int_0^3\!\sqrt{\left(e^x+e^{-x}\right)^2}\\
+&= \frac{1}{2}\int_0^3\!e^x+e^{-x}\,dx
 \end{align*}
+Thus, the integral has simplified into a form which is easily integrable. 
+\begin{align*}
+\frac{1}{2}\int_0^3\!e^x+e^{-x}\,dx &= \frac{1}{2}\left[e^x-e^{-x}\right]_0^3\\
+&= \frac{1}{2}\left(\left(e^3-e^{-3}\right)-\left(e^0-e^{-0}\right)\right)\\
+&= \frac{1}{2}\left(e^3+e^{-3}\right)\\
+&= \frac{e^3}{2}+\frac{e^{-3}}{2}\\
+&= \frac{e^3}{2e^3}
+\end{align*}
+Therefore,  the arc length of the graph of the function $y=\dfrac{e^x+e^{-x}}{2}$ over the interval $[0,3]$ is $\dfrac{e^3}{2e^3}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NEWPAGE
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7.3 PROBLEM STATEMENT
+
+\item For the function $f(x)=1+\ln x$ on the domain $[a,b]$, where $1\le a<b$,
+\begin{enumerate}
+\item Find the average value of $f$ on the given domain.
+\item Find $c$ such that $f_{ave}=f(c)$.
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7.3 WORK
+
+\begin{enumerate}
+
+\item Once more, remember the formula for average value is 
+\[f(c)=\frac{1}{b-a}\int_a^b\!f(x)\,dx\]
+Substituting in our specific values yields the integral
+\[f(c)=\frac{1}{b-a}\int_a^b\!1+\ln x\,dx\]
+Recall that the antiderivative of $\ln x=x\ln x-x$. Then we can do the math
+\begin{align*}
+f(c) &= \frac{1}{b-a}\int_a^b\!1+\ln x\,dx\\
+&= \frac{1}{b-a}\left[x+(x\ln x-x)\right]\\
+&= \frac{1}{b-a}\left((b\ln b)-(a\ln a)\right)\\
+&= \frac{1}{b-a}\left(\ln{b^b}-\ln{a^a}\right)\\
+&= \frac{1}{b-a}\left(\ln{\frac{b^b}{a^a}}\right)\\
+&= \frac{\ln\frac{b^b}{a^a}}{b-a}
+\end{align*}
+Therefore, the average value of $f(x)$ is $\dfrac{\ln\frac{b^b}{a^a}}{b-a}$.
+\item Take our equation from before
+\begin{align*}
+f(c) &= \frac{\ln\frac{b^b}{a^a}}{b-a}
+\end{align*}
+Let us substitute in $f(x)$ for $f(c)$. Then let us manipulate the equation until it is solving for $c$. Doing this results in
+\begin{align*}
+1+\ln c &= \frac{\ln\frac{b^b}{a^a}}{b-a}\\
+\ln c &= \frac{\ln\frac{b^b}{a^a}}{b-a}-1\\
+c &= e^{\frac{\ln\frac{b^b}{a^a}}{b-a}-1}\\
+&= \frac{e^{\frac{\ln\frac{b^b}{a^a}}{b-a}}}{e}
+\end{align*}
+Thus the value of $c=\dfrac{e^{\dfrac{\ln\dfrac{b^b}{a^a}}{b-a}}}{e}$ will make $f(c)=f_{ave}$
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% NEWPAGE
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7.4 PROBLEM STATEMENT
+
+\item \textbf{Professional Problem:} Suppose $f(x)$ is a continuous function. Apply the MVT for derivatives to the function $F(x)=\int_a^x\!f(t)\,dt$ prove the MVT for integrals.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 7.4 WORK
+
+Recall that the MVT for derivatives is
+\begin{align*}
+f^\prime(c) &= \frac{f(b)-f(a)}{b-a}\mathrm{.}
+\end{align*}
+Substitution of $F(x)$ into the MVT creates the equations
+\begin{align*}
+F^\prime(c) &= \frac{F(b)-F(a)}{b-a}\\
+&= \frac{\int_a^b\!f(t)\,dt-\int_a^a\!f(t)\,dt}{b-a}\mathrm{.}
+\end{align*}
+Looking at the equation, recall the FTC Part 1 which states that "If $f$ is continuous on $[a,b]$ and $g(x)=\int_a^x\!f(t)\,dt$ on $[a,b]$, then $g(x)$ is continuous on $[a,b]$, and $g^\prime(x)=f(x)$ on $(a,b)$." Our functions $f(x)$ and $F(x)$ satisfy the conditions for $f(t)$ and $g(x)$ respectively so we can simplify our integral with the FTC. Also remember that and integral with the bounds $[a,b]$ where $a=b$ is 0. 
+\begin{align*}
+F^\prime(c) &= \frac{\int_a^b\!f(t)\,dt-\int_a^a\!f(t)\,dt}{b-a}\\
+f(c) &= \frac{\int_a^b\!f(t)\,dt-\int_a^a\!f(t)\,dt}{b-a}\\
+&= \frac{\int_a^b\!f(t)\,dt}{b-a}\\
+&= \frac{1}{b-a}\int_a^b\!f(t)\,dt
+\end{align*}
+The formula for the MVT of integrals is
+\[f(c)=\frac{1}{b-a}\int_a^b\!f(t)\,dt\]
+Notice that the MVT for integrals and the equation we derived above are exactly the same. Thus, we have proved the Mean Value Theorem for integrals provided the the Mean Value Theorem for derivatives and the Fundamental Theorem of Calculus are true.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT
 
