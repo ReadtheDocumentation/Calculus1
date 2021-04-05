@@ -1,0 +1,190 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 10}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(10.\arabic*)}]
+
+\item If the $n$th partial sum of a series $\displaystyle \sum_{n=1}^\infty a_n$ is $s_n=3-\dfrac{2}{(n+1)^2}$, find $a_n$ and $\displaystyle \sum_{n=1}^\infty a_n$.
+
+To find $a_n$, we will first list out some of the first numbers in the sequence. To do this we can derive that \begin{align}
+a_n &= s_n-s_{n+1}
+\end{align}
+because
+\begin{align*}
+s_n &= a_n+a_{n-1} \ldots +a_1
+\end{align*}
+and 
+\begin{align*}
+s_{n-1} &= a_{n-1}+a_{n-2}\ldots+a_{1},
+\end{align*}
+therefore
+\begin{align*}
+a_n &= s_n-s_{n+1}\\
+&= (a_n+a_{n-1} \ldots +a_1) - (a_{n-1}+a_{n-2}\ldots+a_{1})\\
+&= a_n
+\end{align*}
+Using $(1)$, we define the first few terms of $a_n$ as
+\begin{align*}
+a_1 &= \frac{5}{2}\\
+a_2 &= \frac{5}{18}\\
+a_3 &= \frac{7}{72}\\
+a_4 &= \frac{9}{200}
+\end{align*}
+If we just look at $n>2$, we can define the numerator as $2n+1$. Then, looking at the denominator for the same set of $n$, we find that the denominator is defined as $\dfrac{x^2(x+1)^2}{2}$. We can cover the irregular value of $a_1$ my making it into a piecewise function. Thus we know that
+\begin{align*}
+a_n &= \begin{cases}
+\frac{4n+2}{x^2(x+1)^2}, \text{ if } x > 1\\
+\frac{5}{2}, \text{ if } x = 1
+\end{cases}
+\end{align*}
+Now to evaluate $\displaystyle \sum_{n=1}^\infty a_n$, we simply evaluate $\lim_{n\to\infty} 3-\dfrac{2}{(x+1)^2}$.
+\begin{align*}
+\lim_{n\to\infty} 3-\dfrac{2}{(x+1)^2} &= \lim_{n\to\infty} 3-\lim_{n\to\infty} \frac{2}{(x+1)^2}\\
+&= 3-\lim_{n\to\infty} \frac{2}{(x+1)^2}\\
+&= 3-\frac{1}{\infty}\\
+&= 3
+\end{align*}
+Thus, $\displaystyle \sum_{n=1}^\infty a_n=3$.
+
+\newpage
+
+\item Find the value of $\displaystyle \sum_{n=1}^\infty \frac{12}{(3n+4)(3n+1)}$ or explain why the series diverges. 
+
+The infinite series $\displaystyle \sum_{n=1}^\infty \frac{12}{(3n+4)(3n+1)}$ is a telescoping series so therefore we will use partial fractions on the sequence inside.
+\begin{align*}
+\frac{12}{(3n+4)(3n+1)} &= \frac{a}{3n+4} + \frac{b}{3n+1}\\
+12 &= a(3n+1)+b(3n+4)\\
+&= 3(a+b)n+(a+4b)
+\end{align*}
+Therefore
+\begin{align*}
+a+b&=0\\
+a+4b&=12\\
+\end{align*}
+Then we can do the maths
+\begin{align*}
+a &= -b\\
+12 &= 4b-b\\
+&= 3b\\
+b&= 4\\
+a &= -4
+\end{align*}
+Thus we have the infinite series
+\[\sum_{n=1}^\infty\frac{4}{3n+1}-\frac{4}{3n+4}\]
+Computing the series gives us
+\begin{align*}
+\sum_{n=1}^\infty\frac{4}{3n+1}-\frac{4}{3n+4} &= 1-\frac{4}{7}+\frac{4}{7}\ldots-\frac{4}{3n+4}
+s_n &= 1-\frac{4}{3n+4}
+\end{align*}
+Now, we can find the limit of the partial sum to find the value of the infinite series.
+\begin{align*}
+\lim_{n\to\infty} 1-\frac{4}{3n+4} &= \lim_{n\to\infty}1-\lim_{n\to\infty}\frac{4}{3n+4}\\
+&= 1-\lim_{n\to\infty}\frac{4}{3n+4}\\
+&= 1-0\\
+&= 1
+\end{align*}
+SO we have found the value of $\displaystyle \sum_{n=1}^\infty \frac{12}{(3n+4)(3n+1)}$ as $1$.
+
+\newpage
+
+\item Show that the sum of the area removed from the Sierpinski carpet is 1.
+
+To start to attempt to find the infinite series that is the area removed from the Sierpinski carpet, we will look at the area removed the first three times.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{sierpinski}
+\end{figure}
+From this figure, we can see that see that the area removed the first time is $\dfrac{1}{9}$, the second time $\dfrac{8}{81}$, and the third time $\dfrac{64}{729}$.\\
+The terms
+\[\frac{1}{9}, \frac{8}{81}, \frac{64}{729}\]
+matches a geometric sequence of the form
+\[\frac{8^{n-1}}{9^n}\]
+We can manipulate this into
+\begin{align*}
+\frac{8^{n-1}}{9^n} &= \frac{8^{n-1}}{9^{n-1+1}}\\
+&= \frac{1}{9}\cdot\left(\frac{8}{9}\right)^{n-1}
+\end{align*}
+This type of infinite series is one we can solve with a partial sum of 
+\[\frac{a(1-r^n)}{1-r}\]
+Thus, the partial sum is 
+\begin{align*}
+s_n &= \frac{\frac{1}{9}\left(1-\left(\frac{8}{9}\right)^n\right)}{1-\frac{8}{9}}\\
+&= \left(1-\left(\frac{8}{9}\right)^n\right)
+\end{align*}
+Now, evaluating the limit of our partial sum as it goes to infinity, we get
+\begin{align*}
+\lim_{n\to\infty} \left(1-\left(\frac{8}{9}\right)^n\right) &= (1-0)\\
+&= 1
+\end{align*}
+Thus we have shown that sum of the area removed from the Sierpinski carpet is equal to 1 which implies the Sierpinski carpet has area 0.
+
+
+\newpage
+
+
+\item \textbf{Professional Problem:} 
+\begin{enumerate}
+\item If $\sum a_n$ is convergent and $\sum b_n$ is divergent, show that the series $\sum(a_n+b_n)$ diverges.
+\item If $\sum a_n$ and $\sum b_n$ are both divergent, is $\sum(a_n+b_n)$ necessarily divergent? Prove this, or provide a specific counterexample.
+\end{enumerate}
+
+\begin{enumerate}
+\item We will prove this statement using proof by contradiction. Assume that there exist sequences $\{a_n\}$ and $\{b_n\}$ such that $\sum a_n$ is convergent and $\sum b_n$ is divergent, and the series $\sum(a_n+b_n)$ is convergent. The series $\sum(a_n+b_n)$ is equal to 
+\[a_1+b_1+a_2+b_2\ldots+a_n+b_n\]
+Thus, the partial sum of $\sum(a_n+b_n)$ is 
+\[s_{a_n}+s_{b_n}\]
+Therefore
+\begin{align*}
+\sum(a_n+b_n) &= \lim_{n\to\infty} s_{a_n}+s_{b_n}\\
+&=\lim_{n\to\infty} s_{a_n}+\lim_{n\to\infty} s_{b_n}
+\end{align*}
+However,
+\begin{align*}
+\sum b_n &= \lim s_{b_n}\\
+&= \text{DNE }
+\end{align*}
+Then, 
+\begin{align*}
+\lim_{n\to\infty} s_{a_n}+\lim_{n\to\infty} s_{b_n} &= \lim_{n\to\infty} s_{a_n} + \text{DNE}
+\end{align*}
+Thus, the series $\sum(a_n+b_n)$ cannot be convergent.
+
+\item A specific counterexample to the statement "\textit{If $\sum a_n$ and $\sum b_n$ are both divergent, $\sum(a_n+b_n)$ is divergent}" is an 
+\begin{align*}
+\{a_n\}=-1
+\end{align*} and a 
+\begin{align*}
+\{b_n\}=1
+\end{align*}
+Both of the sums of these sequences diverge since they are adding a constant. However,
+\begin{align*}
+\{a_n+b_n\} &= 0
+\end{align*}
+so 
+\begin{align*}
+\sum(a_n+b_n) &= 0
+\end{align*}
+since it is just an infinite number of zeroes. Therefore, if $\sum a_n$ and $\sum b_n$ are both divergent, $\sum (a_n+b_n)$ is not necessarily divergent.
+
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

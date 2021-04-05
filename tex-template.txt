@@ -4,11 +4,8 @@
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{enumitem}
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage{graphicx}
-\usepackage{tcolorbox}
-\usepackage{amssymb}
-\usepackage[thinc]{esdiff}
 \usepackage{float}
 
 \geometry{letterpaper, portrait, margin=1in}

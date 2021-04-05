@@ -1,0 +1,212 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 9}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(9.\arabic*)}]
+
+\item Let $a_n=\ln(4n+2)-\ln(n+1)$. Write the first three numbers in the sequence ${a_n}$ and calculate its limit. If the limit doesn't exist, explain why.
+
+Firstly, let's condense the sequence $a_n$. 
+\begin{align*}
+ln(4n+2)-\ln(n+1) &= \ln\left(\frac{4n+2}{n+1}\right)
+\end{align*}
+Then we substitute 1, 2, and 3.
+\begin{align*}
+a_1, a_2, a_3 &= \ln\left(\frac{4+2}{1+1}\right), \ln\left(\frac{8+2}{2+1}\right), \ln\left(\frac{12+2}{3+1}\right)\\
+&= \ln3,\ln\frac{10}{3}, \ln\frac{14}{4}
+\end{align*}
+Next, let us take the limit of $\ln\left(\frac{4n+2}{n+1}\right)$ as $n$ approaches $\infty$. First we must change $a_n$ into $f(x)$ and take the limit 
+\begin{align*}
+\lim_{n\to\infty} a_n &= \lim_{x\to\infty} \ln\left(\frac{4x+2}{x+1}\right)
+\end{align*}
+We can use the limit law that states that "If $\lim_{n\to\infty}a_n=L$ and $f(x)$ is continuous at $L$, $\lim_{n\to\infty}f(a_n)=f(L)$" to rearrange our limit and make it easier to evaluate.
+\begin{align*}
+\lim_{x\to\infty} \ln\left(\frac{4x+2}{x+1}\right) &= \ln\left(\lim_{x\to\infty} \frac{4x+2}{x+1}\right)
+\end{align*}
+This is relatively simple to evaluate as we simply divide everything within the limit by $x$.
+\begin{align*}
+\ln\left(\lim_{x\to\infty} \frac{4x+2}{x+1}\right) &= \ln\left(\lim_{x\to\infty} \frac{4+\frac{2}{x}}{1+\frac{1}{x}}\right)\\
+&= \ln\left(\frac{4+0}{1+0}\right)\\
+&= \ln4
+\end{align*}
+Thus, the limit of the sequence $a_n$ is $\ln4$. 
+
+\newpage
+
+
+\item A sequence $b_n$ is given by $b_1=2$, $b_{n+1}=\sqrt{6+b_n}$.
+\begin{enumerate}
+\item Use induction to prove ${b_n}$ is increasing.
+\item Use induction to prove ${b_n}$ is bounded.
+\item Explain why Monotonic Sequence Theorem applies to ${b_n}$.
+\item Find $\lim_{n\to\infty}b_n$.
+\end{enumerate}
+
+
+\begin{enumerate}
+\item First let us do the Base Case.
+\begin{align*}
+b_2 &= \sqrt{6+b_1}\\
+&= \sqrt{6+2}\\
+&= \sqrt{8}\\
+&= 2\sqrt{2}>b_1
+\end{align*}
+Thus we have seen that for $n=1$, the sequence is indeed increasing. For our assumption, let us assume that the sequence is increasing for $n=k$ and that 
+\begin{align}
+b_{k} &\ge b_{k-1}
+\end{align}
+Then, we shall show that this is true for $n=k+1$ and that:
+\begin{align*}
+b_{k+1} &\ge b_k
+\end{align*}
+Now substituting our $b_k$ in we can do the math:
+\begin{align*}
+b_{k+1} &\ge b_k\\
+\sqrt{6+b_k} &\ge \sqrt{6+b_{k-1}}\\
+6+b_k &\ge 6+b_{k-1}\\
+b_{k} &\ge b_{k-1}
+\end{align*}
+Looking back at $(1)$, note that we assumed this inequality to be true, and therefore, $b_n$ is increasing.
+\item Let the bound of $b_n$ be 3. Then, our base case is
+\begin{align*}
+b_1 &= 2\\
+&\le 3
+\end{align*}
+Thus, we shall assume that $b_k\le3$ for $n=k$, and prove that $b_{k+1}\le3$. We know that 
+\begin{align*}
+b_{k+1} &= \sqrt{6+b_k}
+\end{align*}
+Using our assumption that $b_k\le3$, we can say that 
+\begin{align*}
+\sqrt{6+b_k} &\le \sqrt{6+3}
+&=\sqrt{6+b_k} &\le 3
+3 &\le3
+\end{align*}
+Thus we have proved that $b_n$ is bounded.
+\item The Monotonic Sequence Theorem applies to $b_n$ since we have proved that $b_n$ is both monotonic and bounded, which the two requirements for the Monotonic Sequence theorem and thus $b_n$ converges.
+\item First of all note that for our sequence
+\begin{align}
+\lim_{n\to\infty} b_n &= \lim_{n\to\infty} b_{n+1}
+\end{align}
+Let
+\begin{align*}
+B &= \lim_{n\to\infty} b_n
+\end{align*}
+Then, we can do the algebra using (1) that 
+\begin{align*}
+B &= \lim_{n\to\infty} b_{n+1}\\
+&= \lim_{n\to\infty} \sqrt{6+b_n}
+\end{align*}
+Then, using limit laws, we can change our limit above to:
+\begin{align*}
+\lim_{n\to\infty} \sqrt{6+b_n} &= \sqrt{6+\lim_{n\to\infty} b_n}\\
+&= \sqrt{6+B}\\
+B= \sqrt{6+B}\\
+B^2 &= 6+B\\
+0 &= B^2-B-6\\
+&= \left(B-3\right)\left(B+2\right)
+\end{align*}
+From this we can see that $B=3,-2$, however since $b_n$ is increasing and $-2<b_1$, $B=3$.\\
+Therefore $\lim_{n\to\infty} b_n=3$
+\end{enumerate}
+
+\newpage
+
+\item Let $c_n=\dfrac{3-2n}{n}$.
+\begin{enumerate}
+\item Prove that ${c_n}$ is decreasing w/ algebra
+\item Use algebra to prove that ${c_n}$ is bounded below by $-2$ and above by 1.
+\end{enumerate}
+
+\begin{enumerate}
+\item If $c_n$ is decreasing, then
+\begin{align*}
+\frac{3-2(n+1)}{n+1} &\le \frac{3-2n}{n}\\
+0 &\le \frac{3-2n}{n} - \frac{3-2(n+1)}{n+1}\\
+&\le (n+1)(3-2n)-n(1-2n)\\
+&\le 3n-2n^2+3-2n-n+2n^2\\
+&\le 3	
+\end{align*}
+Thus, we have proved that since the value of $n$ has no bearing on the relationship between $c_n$ and $c_{n+1}$ and our proposed inequality was true, ${c_n}$ is decreasing.
+\item Since $c_1=1$ and the sequence is decreasing, we know that it is bounded above by 1. To prove that the sequence is bounded below by $-2$, we can find the range of $y$ like so:
+\begin{align*}
+\frac{3-2x}{x} &= y\\
+3-2x &= xy\\
+3 &= xy+2x\\
+&= x(2+y)\\
+\frac{3}{2+y} &= x
+\end{align*} \\
+From this, we can clearly see that the range of $c_n$ is ${1,-2}$ since the domain is ${1,\infty}$.
+\end{enumerate}
+
+\newpage
+
+
+\item \textbf{Professional Problem:} Prove or provide a specific counterexample to the following statements;
+\begin{enumerate}
+\item If ${|a_n|}$ is convergent, ${a_n}$ is convergent.
+\item If ${a_n}$ and ${b_n}$ are divergent, then ${b_n+a_n}$ diverges.
+\item If ${a_n}$ and ${b_n}$ are divergent, then ${a_n\cdot b_n}$ diverges.
+\item If ${a_n}$ and ${a_n\cdot b_n}$ are convergent sequences, then ${b_n}$ converges.
+\end{enumerate}
+
+\begin{enumerate}
+\item \textbf{This statement is false.} The sequence $a_n=(-1)^n$ is a counterexample to the statement
+\begin{center}
+"If ${|a_n|}$ is convergent, ${a_n}$ is convergent."
+\end{center}
+This is because $(-1)^n$ is divergent by the theorem in the textbook which states,
+\begin{center}
+"The sequence ${r^n}$ is convergent if $-1<r\le1$ and divergent for all other values of $r$."
+\end{center}
+However, ${|a_n|}=1$ because of the limit law 
+\begin{align}
+\lim_{x\to\infty} c &= c
+\end{align}
+Therefore, the statement is false.
+
+\item \textbf{This statement is false.} The sequences \[a_n=n\] and \[b_n=-n\] are counterexamples to the statement 
+\begin{center}
+"If ${a_n}$ and ${b_n}$ are divergent, then ${b_n+a_n}$ diverges."
+\end{center}
+This is because they are both divergent on their own, which can be found by simply evaluating the limits of both, but $a_n+b_n=0$. \\
+According to the limit law referenced in equation $(1)$, $a_n+b_n$ is therefore divergent since the sequence is a constant.
+
+\item \textbf{This statement is false.} The sequences of \[a_n=\cos n\] and \[b_n=\sec n\] are counterexamples to the statement
+\begin{center}
+"If ${a_n}$ and ${b_n}$ are divergent, then ${a_n\cdot b_n}$ diverges."
+\end{center} 
+They diverge because evaluation of them using the theorem
+\begin{center}
+"If $\lim_{n\to\infty} a_n = L$ and the function $f$ is continuous at $L$, then $\lim_{n\to\infty}f(a_n)=f(L)$.
+\end{center}
+requires the evaluation of $\cos\infty$ and $\sec\infty$. Therefore, $a_n$ and $b_n$ are divergent since they require the evaluation of $\infty$, $a_n\cdot b_n=1$ and again using equation (1), is convergent.
+
+\item \textbf{This statement is false.} The combination of the sequences $a_n=0$ and $b_n=n$ is a counterexample of the statement
+\begin{center}
+"If ${a_n}$ and ${a_n\cdot b_n}$ are convergent sequences, then ${b_n}$ converges."
+\end{center}
+According to (1), then the limit is convergent. However, $b_n=n$ isn't convergent on its own which can be found from basic evaluation of the limit.  
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
