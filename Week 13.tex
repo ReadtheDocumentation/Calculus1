@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 13}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(13.\arabic*)}]
+
+%%%%%%%%%%%%%%%%%%% Problem 1		
+\item Calculate the radius of convergence and interval of convergence of the series $\displaystyle \sum_{n=1}^\infty \frac{n}{5^n}(x+2)^n$.
+
+To calculate the radius and interval of convergence we will use the Ratio Test. The Ratio Test states that:
+\begin{center}
+\vspace{-10pt}
+\[\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|=L\]
+If $L>1$, then $a_n$ diverges.
+If $L<1$, then $a_n$ absolutely converges.
+If $l=1$, then the test was inconclusive.
+\end{center}
+Applying this test gives us the limit:
+\begin{align*}
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| &= \lim_{n\to\infty} \left|\frac{(n+1)(x+2)^{n+1}}{5^{n+1}}\cdot\frac{5^n}{n(x+2)^n}\right|\\
+&= \lim_{n\to\infty} \left|\frac{(n+1)(x+2)}{5n}\right|\\
+&= \lim_{n\to\infty} \left|\frac{x+2}{5}\right|\cdot\frac{n+1}{n}\\
+&= \left|\frac{x+2}{n}\right|
+\end{align*}
+For the series to converge, 
+\[\left|\frac{x+2}{5}\right|<1\]
+We can use this to obtain:
+\[\left|x+2\right|<5\]
+Now we know that the radius of convergence is 5. Solving this inequality gives us two values for $x$: $-7$ and $3$. These are the endpoints for our interval of convergence. Next, we must determine whether the series is convergent there. To do this, we will substitute them into our power series as a replacement for $x$.\\
+Substitution of $3$ for $x$ yields the sequence:
+\begin{align*}
+\frac{n}{5^n}(3+2)^n &=  \frac{n}{5^n}(5)^n\\
+&= n
+\end{align*}
+We can conclude that the interval of convergence ins open-ended at $3$ because the series of $n$ is divergent. Substitution of $-7$ yields:
+\begin{align*}
+\frac{n}{5^n}(-7+2)^n &=  \frac{n}{5^n}(-5)^n\\
+&= (-1)^nn
+\end{align*}
+We can conclude that this series diverges because it fails the  Test for Divergence, which states that if the limit of a series is not 0, then the series diverges. This series diverges because it oscillates away to $\infty$ on both sides.
+\begin{center}
+The radius of convergence is 5.\\
+The interval of convergence is $(-7,3)$.
+\end{center}
+
+%%%%%%%%%%%%%%%%%%% Newpage
+
+\newpage
+
+%Prolem 2	
+\item Suppose that $\displaystyle \sum_{n=0}^\infty c_n x^n$ converges when $x=-6$ and diverges when $x=8$. What, if anything can be said about the convergence of the following series? Justify your answer.\\
+(a) $\displaystyle \sum_{n=0}^\infty c_n\quad\quad\quad$ (b) $\displaystyle \sum_{n=0}^\infty c_n3^n\quad\quad\quad$ (c) $\displaystyle \sum_{n=0}^\infty c_n(-8)^n\quad\quad\quad$ (d) $\displaystyle \sum_{n=0}^\infty (-1)^nc_n9^n$
+
+\begin{enumerate}
+\item First off, we know that the power series is centered at 0, because it only $x$ is being raised to the power of $n$. Using this knowledge we can state that the radius of convergence is at least 6 because when $x=-6$, the series converges and $-6$ is 6 away from 0. In this case, we are using an $x$ of 1, because
+\begin{align*}
+\sum_{n=0}^\infty c_n &= \sum_{n=0}^\infty c_n1^n
+\end{align*}
+Since $1<6$, we know that this series converges.
+\item Using the same logic as in (a), we can also say that $x=3$ converges because $3<6$ so the proposed series is within the minimum interval of convergence. Therefore, this series converges.
+\item For this $x=-8$, we cannot say anything about its convergence. This is because although when $x=8$, the series diverges, our radius of convergence could be 8, which means that this series would be part of an endpoint and could either diverge or converge. Or, it could simply be outside of the interval of convergence. Again, due to the possibility of $x=-8$ being an endpoint on the interval of convergence, we cannot say anything about the convergence or divergence of this series. 
+\item 					
+\end{enumerate}
+%%%%%%%%%%%%%%%%%%% Newpage
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%% Problem 3
+\item
+
+%%%%%%%%%%%%%%%%%%% Newpage
+
+\newpage
+
+%Professional Problem
+
+\item \textbf{Professional Problem:}
+\end{enumerate}
+
+
+\end{document}

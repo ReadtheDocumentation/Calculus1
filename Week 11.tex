@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 11}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(11.\arabic*)}]
+
+\item Use the Comparison Test or the Limit Comparison Test to determine the convergence of the following series: \[\displaystyle (a)\sum_{n=1}^\infty \dfrac{4^n}{3^n+2^n} \qquad\qquad\qquad\qquad\qquad\qquad\qquad (b)\displaystyle \sum_{n=3}^\infty \frac{n}{n^5-2}\]
+
+
+\begin{enumerate}
+    \item Let $a_n=\dfrac{4^n}{3^n+3^n}$ and $b_n = \dfrac{4^n}{3^n+2^n}$. Because $n$ is only a power, we know that both sequences are positive for all $n>0$. Therefore we can use the Comparison Test. Because $2^n < 3^n$, we can make the comparison:
+    \[0 < \frac{4^n}{2(3^n)} < \frac{4^n}{3^n+2^n}\]
+    Because $b_n$ is a geometric sequence of the form $ar^n$, we can easily determine its convergence. In our case of $b_n=\dfrac{1}{2}\left(\dfrac{4}{3}\right)^n$, $r>1$, therefore $b_n$ diverges. Since $b_n<a_n$, $a_n$ also converges.
+    \item Let $a_n=\dfrac{1}{n^4}$ and $b_n=\dfrac{n}{n^5-2}$. To use the Limit Comparison Test, let us verify that the sequences are positive. The first sequence is positive because $n^4>0$ for all $n$ and $b_n$ is positive because for $n>3$, $n^5-2>0$. Then we construct the limit
+    \begin{align*} 
+    \lim_{x\to\infty} \frac{\frac{1}{n^4}}{\frac{n}{n^5-2}} &= \lim_{x\to\infty} \frac{n^5-2}{n^5}\\
+    &= \lim_{x\to\infty} \frac{1-\frac{2}{n^5}}{1}\\
+    &= 1
+    \end{align*}
+    Since the limit of $\dfrac{a_n}{b_n}>0$, they both either converge or diverge. Through the p-test, we know that $a_n$ converges, therefore $b_n$ also converges.
+\end{enumerate}
+
+\newpage
+
+\item Use the Integral Test to determine whether $\displaystyle \sum_{n=1}^\infty\dfrac{n^2}{n^3+7}$ converges.
+
+Before using the integral test to determine the series' convergence, first we must verify the conditions that the sequence is continuous, decreasing, and positive. First, let $a_n=\dfrac{n^2}{n^3+7}$.\\\\
+Positive: The numerator of $a_n=n^2$, which is positive for all $n$. The denominator is $n^3+7$, which is also positive for all $n>0$.\\\\
+Decreasing: Applying the Quotient Rule for derivatives, we find that the derivative of $a_n$ is $\dfrac{-n^4+14n}{(n^3+7)^2}$ which is negative for $n>\sqrt[3]{14}$. Although the sequence is not decreasing for all $n$, it is only increasing for a finite interval, so the bounds of the integral can be adjusted to fit. \\\\
+Continuous: The functions $n^$ and $n^3+7$ do not have any points where they are undefined , therefore the sequence is continuous on all $n$. \\\\
+To use the Integral Test, we simply construct an integral from the terms in the series. Doing this results in the integral
+\[\int_{\sqrt[3]{14}}^\infty \frac{n^2}{n^3+7}\,dn\]
+Note that the lower bound is not 1 to satisfy the decreasing condition of the Integral Test. To compute this we first turn it into a proper integral and then use a $u$-substitution of $n^3+7$.
+\begin{align*}
+    \int_{\sqrt[3]{14}}^\infty \frac{n^2}{n^3+7}\,dn &= \lim_{t\to\infty} \int_{\sqrt[3]{14}}^t\frac{n^2}{n^3+7}\,dn\\
+    &= \lim_{t\to\infty} \int_{\sqrt[3]{14}}^t\frac{1}{3u}\,du
+\end{align*}
+Normally it would be necessary to complete evaluating the integral, but in this case we know that the series is divergent. This is because the integrand is of the form $\dfrac{1}{n}$ and according to the $p$-test, we know that integrals of this form diverge. Thus, the series $\displaystyle \sum_{n=1}^\infty\dfrac{n^2}{n^3+7}$ diverges.
+
+\newpage
+
+\item Suppose $\displaystyle \sum_{n=1}^\infty a_n$ and $\displaystyle \sum_{n=1}^\infty b_n$ are both convergent series with positive terms.
+\begin{enumerate}
+    \item Explain why, eventually $0\le a_n<1$.
+    \item Use the comparison test to explain why $\displaystyle \sum_{n=1}^\infty a_nb_n$ is also convergent. 
+\end{enumerate}
+
+\begin{enumerate}
+    \item If the series $\displaystyle \sum_{n=1}^\infty a_n$ is convergent, then $\displaystyle \lim_{n\to\infty} a_n=0$. Therefore, at some point, the values of $a_n$ must be less than $1$ as it approaches 0. Also, because the $a_n$ has positive terms, the values of it cannot be less that 0.\\
+    Thus,
+    \[0\le a_n<1\]
+    \item Since we know from $(a)$ that there is some $N$ that $a_N<1$ and $b_N<1$, we know that the sum is a fraction multiplied by a fraction. On the other hand, $\displaystyle \sum_{n=N}^\infty a_n$ is simply a singular fraction. Thus, we can make the comparison that
+    \[0\le \sum_{n=N}^\infty a_n b_n < \sum_{n=N} a_n\]
+    And since $\displaystyle \sum_{n=N}^\infty a_n$ converges, we know that $\displaystyle \sum_{n=1}^\infty a_nb_n$ also converges because $[1,N)$ is a finite interval.
+\end{enumerate}
+
+\newpage
+
+\item \textbf{Professional Problem:} Suppose $\displaystyle \sum_{n=1}^\infty a_n$ is a convergent series and $\displaystyle \sum_{n=1}^\infty b_n$ is a divergent series who both have positive terms.
+\begin{enumerate}
+    \item Prove $\sum_{n=1}^\infty \sin(a_n)$ converges
+    \item Provide a specific counterexample to the notion $\sum_{n=1}^\infty \cos(a_n)$ always converges
+    \item Provide a specific counterexample to the notion $\sum_{n=1}^\infty \sin(b_n)$ always diverges.
+\end{enumerate}
+
+\begin{enumerate}
+    \item We shall use the LCT with the sequences $\sin(a_n)$ and $a_n$. Although $\sin(a_n)$ is not always positive, as $n\to\infty$ $a_k\to0$. Thus, after some $N$ $\sin(a_n)$ is always positive. Then we can create the limit
+    \[\lim_{n\to\infty}\frac{\sin(a_n)}{a_n}\]
+    Because $\displaystyle \lim_{n\to\infty} a_n=0$, we can perform the substitution
+    \begin{align*}
+        \lim_{n\to\infty}\frac{\sin(a_n)}{a_n} &= \lim_{u\to\infty} \frac{\sin u}{u}
+    \end{align*}
+    Using the identity $\displaystyle \lim_{x\to\infty} \frac{\sin x}{x}=1$, we find that
+    \begin{align*}
+        \lim_{u\to\infty} \frac{\sin u}{u} &= 1
+    \end{align*}
+    Thus, if $\displaystyle \sum_{n=1}^\infty a_n$ is convergent, $\displaystyle \sum_{n=1}^\infty \sin(a_n)$ converges.
+    \item A specific counterexample is the sequence $a_n=0$. The series 
+    \begin{align*}
+        \sum_{n=1}^\infty a_n &= 0
+    \end{align*}
+    However, 
+    \begin{align*}
+        \sum_{n=1}^\infty \cos(a_n) &= \sum_{n=1}^\infty \cos(0)\\
+        &= \sum_{n=1}^\infty 1\\
+        &= \infty
+    \end{align*}
+    Thus, if $\displaystyle \sum_{n=1}^\infty a_n$ converges, $\displaystyle \sum_{n=1}^\infty \cos(a_n)$ does not necessarily converge.
+    \item A specific counterexample to this notion is the sequence $b_n=\pi$. The series
+    \begin{align*}
+        \sum_{n=1}^\infty b_n &= \infty
+    \end{align*}
+    However,
+    \begin{align*}
+        \sum_{n=1}^\infty \sin(b_n) &= \sum_{n=1}^\infty \sin(\pi)\\
+        &= \sum_{n=1}^\infty 0\\
+        &= 0
+    \end{align*}
+    Thus, if $\displaystyle \sum_{n=1}^\infty b_n$ diverges, $\displaystyle \sum_{n=1}^\infty \sin(b_n)$ does not necessarily diverge.
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}

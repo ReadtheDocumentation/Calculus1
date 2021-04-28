@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cancel}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 12}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(12.\arabic*)}]
+
+% 12.1
+
+\item Consider the series $\displaystyle \sum_{n=1}^\infty \left(1+\frac{1}{n}\right)^n$.
+\begin{enumerate}
+\item Show that the root test is inconclusive about the convergence or divergence of this series.
+\item Use another test to determine the convergence or divergence of this series
+\end{enumerate}
+
+% 12.1 Work ####################################################################################
+
+\begin{enumerate}
+\item The Root Test states that:
+\begin{center}
+\vspace{-20pt}
+\[\lim_{n\to\infty} \sqrt[n]{a_n} = L\]
+If $L<1$ then $\displaystyle \sum_{n=1}^\infty a_n$ is absolutely convergent\\
+If $L>1$ or if the limit does not exist then $\displaystyle \sum_{n=1}^\infty a_n$ is divergent.\\
+If $L=1$ then the test is inconclusive.
+\end{center}
+Applying the test returns 1, as seen below.
+\begin{align*}
+\lim_{n\to\infty} \sqrt[n]{\left(1+\frac{1}{n}\right)^n} &= \lim_{n\to\infty} \left(1+\frac{1}{n}\right)\\
+&= 1+\frac{1}{\infty}\\
+&= 1
+\end{align*}
+According to the definition of the Root Test, this is inconclusive.
+\item However, if we apply the Test for Divergence, which states
+\begin{center}
+If $a_n\,\, \cancel{\rightarrow}\,\, 0$ as $n\to\infty$, then $\displaystyle \sum_{n=1}^\infty a_n$ diverges.
+\end{center}
+we can get a significant result. Applying this creates the limit
+\begin{align*}
+\lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n &= \frac{1}{e}
+\end{align*}
+We know this since $\displaystyle \lim_{n\to\infty} \left(1+\frac{1}{n}\right)^n = \frac{1}{e}$ is a known limit at this point. Thus, according to the Test for Divergence, this series diverges.
+\end{enumerate}
+
+\newpage
+
+% 12.2
+
+\item The terms of a sequence are defined recursively by the equation $a_1=7$ and $a_{n+1}=\dfrac{5n-4}{3n+2}a_n$. Determine whether $\displaystyle \sum a_n$ converges or diverges. 
+
+To determine whether this series converges or diverges, we shall apply the Ratio Test, which states
+\begin{center}
+\vspace{-20pt}
+\[\lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|=L\]
+If $L>1$, then $\displaystyle \sum_{n=1}^\infty a_n$ is divergent.
+If $L<1$, then $\displaystyle \sum_{n=1}^\infty a_n$ is absolutely convergent.
+If $L=1$, then the test is inconclusive.
+\end{center}
+We can apply the test to get the result $\dfrac{5}{3}$, as seen below.
+\begin{align*}
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| &= \lim_{n\to\infty} \left|\frac{\frac{5n-4}{3n+2}a_n}{a_n}\right|\\
+&= \lim_{n\to\infty} \left|\frac{5n-4}{3n+2}\right|\\
+&= \lim_{n\to\infty} \left|\frac{5-\frac{4}{n}}{3+\frac{2}{n}}\right|\\
+&= \frac{5}{3}
+\end{align*}
+According to the Ratio Test, the series diverges because $\frac{5}{3}>1$. Thus $\displaystyle \sum a_n$ diverges.
+
+\newpage
+
+\item Complete the following:
+\begin{enumerate}
+\item Show that $\displaystyle \sum_{n=1}^\infty \frac{x^n}{n!}$ converges for all $x$.
+\item Deduce that $\displaystyle \lim_{n\to\infty} \frac{x^n}{n!}=0$ for all $x$.
+\end{enumerate}
+
+\begin{enumerate}
+\item To show that $\displaystyle \sum_{n=1}^\infty \frac{x^n}{n!}$ converges for all $x$, we will be using the Ratio Test.	
+Applying the Ratio Test gives us the limit
+\begin{align*}
+\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| &= \lim_{n\to\infty} \left|\frac{x^{n+1}}{(n+1)!}\cdot\frac{n!}{x^n}\right|\\
+&= \lim_{n\to\infty} \frac{x}{n+1}\\
+&= \frac{x}{\infty}\\
+&= 0
+\end{align*}
+Referencing the calculations above, we can see that now matter what the value of $x$ is, the Ratio Test will always return $0$. According to the definition of the Ratio Test, this means that $\displaystyle \sum_{n=1}^\infty \frac{x^n}{n!}$ converges for all values of $x$.
+
+\item To deduce the limit of $a_n$, we can just use the contrapositive of the Test for Divergence used in 12.1. It states that
+\begin{center}
+\vspace{-20pt}
+If $\displaystyle \sum_{n=1}^\infty a_n$ converges, then $\displaystyle \lim_{n\to\infty} a_n=0$.
+\end{center}
+In part $(a)$ we proved that $\displaystyle \sum_{n=1}^\infty \frac{x^n}{n!}$ converges for all $x$, so by the contrapositive of the Test for Divergence, we can state that $\displaystyle \lim_{n\to\infty} \frac{x^n}{n!} = 0$ for all $x$.
+\end{enumerate}
+
+\newpage
+
+\item \textbf{Professional Problem:} Consider the series $ \sum \left(-1\right)^{n-1}a_n$, where $a_n-\frac{1}{n^2}$ is $n$ is odd and $a_n = \frac{1}{n}$ is $n$ is even. 
+(a) Why does the Alternating Series Test not apply?
+(b) Determine whether the series made up of the even terms converges or diverges.
+(c) Determine whether the series made up of the odd terms converges or diverges.
+(d) Use your results from (b) and (c) and the result you proved in Problem 10.4 to show this series diverges
+
+\begin{enumerate}
+\item The Alternating Series Test states that $\sum_{n=1}^\infty (-1)^na_n$ converges if $a_n>0$ for all $n$, $\frac{d}{dn}a_n<0$ for all $n$,
+and $\displaystyle \lim_{n\to\infty} a_n=0$.
+The sequence listed out looks like:
+\[a_1 = 1,a_2=\frac{1}{2},a_3=\frac{1}{9},a_4=\frac{1}{4},a_5=\frac{1}{25}\ldots\]
+From just the first five terms we can clearly see that the sequence will never start decreasing permanently. Therefore the decreasing condition of the AST is not fulfilled and it does not apply.
+
+\item To determine whether the series converges or diverges, first let us create an equation that provides the even terms. We shall do this by listing out the terms and then finding patterns within the list to create  a function for the sequence.
+\[e_1=\frac{1}{2}, e_2=\frac{1}{4}, e_3=\frac{1}{6}\ldots\]
+From this we can tell that the general formula for the sequence made up of just the even terms is:
+\begin{align*}
+e_n &= \frac{1}{2n}
+\end{align*}
+Finding the sum of this gives us
+\begin{align*}
+\sum \frac{1}{2n}
+&= \frac{1}{2} \sum \frac{1}{n}
+\end{align*} Because $e_n$ contains the harmonic series, $\sum e_n$ diverges.
+\item We shall follow the same process as in part (b), first determining a general equation for the terms of the series and then summing them up to determine whether the sequence converges or diverges. Listing out the terms provides the sequence:
+\[o_1=1,o_2=\frac{1}{9},o_3=\frac{1}{25},o_4=\frac{1}{49}\ldots\]
+From this we can see that
+\[o_n=\frac{1}{(2n-1)^2}\]
+To determine the convergence of this series we can use the Integral Test , but first we must verify the conditions.\\
+Positive: The sequence $(2n-1)^2>1\ge0$ for all integer $n>0$. Continuous: The denominator $(2n-1)^2=0$ for $n=\frac{1}{2}$, So it is continuous on integer $n>0$. Decreasing: The derivative of $o_n$ is $\frac{-4}{(2n-1)^3}$, so the function is always decreasing for $n>1$. Now that we have satisfied the conditions, we can construct the integral $\displaystyle \int_1^\infty \frac{1}{(2n-1)^2}\,dn$. If we perform a $u$-substitution with $u=2n-1$ we get an integrand of the form $\dfrac{1}{u^2}$, which we know converges from the $p$-test. Thus, we conclude that the series made up of the odd terms converges.
+\item In 10.4, we proved that if $\sum a_n$ converges and $\sum b_n$ diverges, $\sum (a_n+b_n)$ also diverges. Using that statement, we can prove the divergence of $\sum a_n$, since $\sum e_n$ diverged and $\sum o_n$ converged, like so
+\begin{align*}
+\sum (-1)^{n-1} a_n &= \sum o_n - \sum e_n\\
+&= \infty
+\end{align*}
+Thus, we have shown the series diverges
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}
