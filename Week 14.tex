@@ -1,0 +1,175 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work 14}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(14.\arabic*)}]
+
+\item (a) Find a power series representation for $\displaystyle f(x)=\dfrac{3}{1+x}$. What is the radius of convergence?\\
+(b) Use (a) to find a power series representation for $\displaystyle g(x)=3\ln(1+x)$. What is the radius of convergence?
+\newline
+(c) Verify that this \textit{intervals} of convergence for your series in (a) and (b) are different, even though their radii of convergence are the same.\\
+
+\begin{enumerate}
+\item We can find a power series representation for $f(x)$ by utilizing the formula for a sum of a geometric series. The formula for the sum of geometric series is:
+\[\sum_{n=0}^\infty ar^n=\frac{a}{1-r}\]
+Therefore, we can manipulate $f(x)$ like so
+\begin{align*}
+    \dfrac{3}{1+x} &= \frac{3}{1-(-x)}\\
+    &= \sum_{n=0}^\infty 3(-x)^n\\
+    &= \sum_{n=0}^\infty 3(-1)^n(x)^n
+\end{align*}
+Because this is a geometric series, we know that the radius of convergence is 1 because a geometric series only converges when $|r|<1$. Therefore, we know that the power series representation of $f(x)$ converges when
+$|x|<1$.
+\item TO find a power series representation for $g(x)$, we have to use the derivative of $g(x)$. The derivative of $g(x)$ is computed like below.
+\begin{align*}
+    g^\prime(x) &= 3\cdot \frac{d}{dx}(\ln(1+x)\cdot\frac{d}{dx}(1+x)\\
+    &= 3\cdot\frac{1}{1+x}\cdot1\\
+    &= \frac{3}{1+x}
+\end{align*}
+Now we already know the power series representation of $g^\prime(x)$, from (a), which is $\displaystyle \sum_{n=0}^\infty 3(-1)^n(x)^n$. Now, we can integrate the sum from (a) to find the power series representation of $g(x)$. We can do this via term by term integration which states that,
+\begin{align*}
+    \int\sum c_nx^n dx&= \sum \int (c_n x^n)dx\\
+    &= C+\sum \frac{c_n}{n+1}x^{n+1}
+\end{align*}
+Therefore, we know that the integral of $g^\prime(x)$ is:
+\[C+\sum_{n=0}^\infty (-1)^n\frac{3}{n+1}(x)^{n+1}\]
+
+Next, to find the value of $C$, we will plug in $x=0$ into $g(x)$ and its power series representation.
+\begin{align*}
+    g(0) &=0\\
+    &= C+\sum_{n=0}^\infty (-1)^n\frac{3}{n+1}(x)^{n+1}\\
+    &= C+ 0+ 0+ 0\ldots\\
+\end{align*}
+From this we can reason that $C=0$. Therefore
+\begin{align*}
+    g(x) &= \sum_{n=0}^\infty (-1)^n\frac{3}{n+1}(x)^n
+\end{align*}
+We can also note that the radius of convergence is the same because term by term integration does not change the radius of convergence.
+\item Now, we have to verify that the intervals of convergence are different although their radii are the same. We already know that the interval of convergence for $f(x)$ is $(-1,1)$ because it is a geometric series, meaning that the endpoints on the interval of convergence are always open. Now, we just have to show that one of the endpoints on the interval of convergence for $g(x)$ are closed. Let's start by testing whether the $g(1)$ converges in the power series representation.
+\begin{align*}
+    g(1) &= \sum_{n=0}^\infty (-1)^n\frac{3}{n+1}(x)^{n+1}\\
+    &= \sum_{n=0}^\infty (-1)^n\frac{3}{n+1}
+\end{align*}
+Now we can use the alternating series test to determine whether this series converges. We can easily tell that the sequence of $\dfrac{3}{n+1}$ fulfills the conditions of being positive, decreasing and that the sequence goes to 0 as $n$ goes to infinity. The sequence is positive because $n+1$ and 3 are always positive, so the sequence as a whole must be positive. We can also determine that it is decreasing because the denominator contains the higher power of $n$, so it will grow faster than the numerator which is static. This logic can also be used to justify that $\displaystyle \lim_{n\to\infty} \frac{3}{n+1}=0$. Thus, we can conclude that the intervals of convergence for $f(x)$ and $g(x)$ are different because their convergence at $x=1$ are different.
+\end{enumerate}
+
+\newpage
+
+\item Let $\displaystyle f(x)= \sum_{n=2}^\infty\frac{x^n}{n-1}$. Find the intervals of convergence for $f$, $f^\prime$, and $f^{\prime\prime}$.
+
+To find the interval of convergence, we will use the Ratio Test.
+\begin{align*}
+\lim_{n\to\infty} \left|\frac{x^{n+1}}{n+1-1}\cdot\frac{n-1}{x^n}\right| &= \lim_{n\to\infty} \left|\frac{x(n-1)}{n}\right|\\
+&= \lim_{n\to\infty} \frac{n-1}{n}|x|\\
+&= |x|
+\end{align*}
+Thus, we know that the radius of convergence is 1. Now to test the endpoints of $-1$ and $1$ we can use the Alternating Series Test and the Comparison Test, respectively.
+For the endpoint of $-1$, we cna use the alternating series test and conclude that the sequence of $a_n=\dfrac{1}{n-1}$ fulfills the conditions of being positive decreasing, and  that $\displaystyle \lim_{n\to\infty} a_n=0$. This is because for values of $n>1$, the sequence only has positive values because the numerator and denominator would be positive. We can also verify that it is decreasing because for $n>2$, the denominator will always be greater than the numerator and it will be growing faster. This is because the denominator contains $n$, while the numerator only has a fixed integer value of 1. This reasoning can also be used to fulfill the requirement that $\lim_{n\to\infty} a_n=0$ because the denominator is growing faster than the numerator, so the limit is equal to 0. Therefore, we can conclude that the sum is convergent for the endpoint of $-1$. Next, we find that
+\begin{align*}
+f(1)=\sum_{n=0}^\infty \frac{1^n}{n-1}\\
+&= \sum_{n=0}^\infty \frac{1}{n-1}\\
+\end{align*}
+Then we can use the comparison of the summand to the harmonic series.
+\begin{align*}
+\frac{1}{n-1} &> \frac{1}{n}
+\end{align*}
+Therefore, we can conclude that $x=1$ diverges because $f(1)$ is greater than the harmonic series which diverges. The interval of convergence is $[-1,1)$. Before finding the interval of convergence for $f^\prime$, first we have to find $f^\prime$. To do this, we will use term by term differentiation, which states
+\begin{align*}
+\frac{d}{dx}\sum c_nx^n &= \sum nc_nx^{n-1}
+\end{align*}
+Therefore,
+\begin{align*}
+f^\prime &= \sum_{n=0}^\infty \frac{nx^n}{n-1}
+\end{align*}
+While we are computing derivatives let's compute $f^{\prime\prime}$. Following the same process as before we get,
+\begin{align*}
+f^{\prime\prime} &= \frac{d}{dx}f^\prime(x)\\
+&= \frac{d}{dx} \sum_{n=0}^\infty \frac{nx^n}{n-1}\\
+&= \sum_{n=0}^\infty nx^n
+\end{align*}
+Now, to find the interval of convergences, we can start with the fact that the radii of convergence do not change when integrating or differentiating a sum. Then, we will use the Series Divergence Test to find the interval of convergence for $f^\prime$. 
+\begin{align*}
+\lim_{n\to\infty} \frac{n}{n-1} &= \lim_{n\to\infty} \frac{1}{1-\frac{1}{n}}\\
+&= 1
+\end{align*}
+From this we can conclude that the function does not converge for $x=1$. We can also doubly find that $x=-1$ also diverges because
+\begin{align*}
+\lim_{n\to\infty} (-1)^n\frac{n}{n-1} &= \lim_{n\to\infty} (-1)^n
+\end{align*}
+The limit above does not exist, which is obviously not 0. Therefore, we conclude that the interval of convergence of $f^\prime$ is $(-1,1)$. To find the interval of convergence for $f^{\prime\prime}$, we will use the properties of a geometric function. The summand of $nx^n$ fits the shape of a geometric series, which means that the endpoints are naturally divergent. Therefore, the interval of convergence for $f^{\prime\prime}$ is $(-1,1)$.
+
+\newpage
+
+\item Let $\displaystyle f(x) = \sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!}$.
+\begin{enumerate}
+    \item Show $f(x)$ converges for all $x$.
+    \item Verify that $f(x)$ is an odd function.
+    \item Find $f(0)$ and $f^\prime(0)$.
+    \item Verify that $f^{\prime\prime}(x)=-f(x)$.
+    \item Make a conjecture about which standard, well known function $f(x)$ is equal to.
+\end{enumerate}
+
+\begin{enumerate}
+    \item To determine the radius of convergence, we will use the Ratio Test.
+    \begin{align*}
+        \lim_{n\to\infty} \frac{x^{2n+3}}{(2n+3)!}\cdot\frac{(2n+1)!}{x^{2n+1}} &= \lim_{n\to\infty} \frac{x^2}{(2n+3)(2n+2)}\\
+        &= 0
+    \end{align*}
+    From this we can tell that $f(x)$ is convergent for all $x$ because no matter what $x$ is, 0 will always be less than one.
+    \item To show that $f(x)$ is odd, or that $-f(x)=f(-x)$, we will substitute in $-x$ for $x$
+    \begin{align*}
+        f(-x) &= \sum_{n=0}^\infty(-1)^n\frac{(-x)^{2n+1}}{(2n+1)!}\\
+        &= \sum_{n=0}^\infty(-1)^n\frac{(x)^{2n}\cdot(-x)}{(2n+1)!}\\
+        &= \sum_{n=0}^\infty-1\cdot(-1)^n\frac{(x)^{2n+1}}{(2n+1)!}\\
+        &= -\sum_{n=0}^\infty(-1)^n\frac{(x)^{2n+1}}{(2n+1)!}\\
+        &= -f(x)
+    \end{align*}
+    \item  First, let us find $f(0)$. 
+    \begin{align*}
+        f(0) &= \sum_{n=0}^\infty (-1)^n\frac{0^{2n+1}}{(2n+1)!}\\
+        &= \sum_{n=0}^\infty 0\\
+        &= 0
+    \end{align*}
+    Now let us find the derivative of $f(x)$. We know that 
+    \[\frac{d}{dx}\sum c_nx^n = \sum nc_nx^{n-1}\]
+    Therefore, we can conclude that
+    \begin{align*}
+    \frac{d}{dx}\sum_{n=0}^\infty (-1)^n\frac{x^{2n+1}}{(2n+1)!} &= \sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!}
+    \end{align*}
+    Now that we have found $f^\prime(x)$, we can find $f^\prime(0)$.
+    \begin{align*}
+    f^\prime(0) &= \sum_{n=0}^\infty (-1)^n\frac{0^{2n}}{(2n)!}\\
+    &= \sum_{n=0}^\infty 0\\
+    &= 0
+    \end{align*}
+    \item To first verify that $f^{\prime\prime}(x)=-f(x)$, we need to find $f^{\prime\prime}(x)$. We can easily find this via the same way used in 14.1, term by term differentiation. 
+    \begin{align*}
+    \frac{d}{dx}\sum_{n=0}^\infty (-1)^n\frac{x^{2n}}{(2n)!} &= \sum_{n=1}^\infty (-1)^n\frac{x^{2n-1}}{(2n-1)!}
+    \end{align*}
+    Now, to verify that the function are indeed equal, we can start by first writing out some terms. 
+    \begin{align*}
+    f^{\prime\prime} &= -x+\frac{x^3}{3!}-\frac{x^5}{5!}+\frac{x^7}{7!}+\ldots
+    f(x) &= x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}\ldots
+    \end{align*}
+    From this, we can see that when $f(x)$ would be multiplied by $-1$, the terms would be identical. 
+    \item The sum $f(x)$ is equal to the alternating version of $e^x$. This is because the  power series representation of $e^x$ is $\sum_{n=0}^\infty \frac{x^n}{n!}$, which is the non-alternating part of the summand of $f(x)$. This is also backed up by the fact that in the combination of (c) and (d) we can conclude that $\left|\frac{d^z}{d^zx}f(x)\right|=|f(x)|$. This means that the absolute value of $f(x)$ is equal to any derivative of it. The only functions which share this behavior is $e^x$. 
+\end{enumerate}
+
+
+\end{enumerate}
+\end{document}

@@ -74,14 +74,71 @@ The interval of convergence is $(-7,3)$.
 Since $1<6$, we know that this series converges.
 \item Using the same logic as in (a), we can also say that $x=3$ converges because $3<6$ so the proposed series is within the minimum interval of convergence. Therefore, this series converges.
 \item For this $x=-8$, we cannot say anything about its convergence. This is because although when $x=8$, the series diverges, our radius of convergence could be 8, which means that this series would be part of an endpoint and could either diverge or converge. Or, it could simply be outside of the interval of convergence. Again, due to the possibility of $x=-8$ being an endpoint on the interval of convergence, we cannot say anything about the convergence or divergence of this series. 
-\item 					
+\item We cannot say anything about the convergence or divergence of this series as well. This is because the series is alternating. Although $\displaystyle \sum_{n=0}^\infty c_n9^n$ diverges, due to its $x$ being outside the maximum interval of convergence, since the function is alternating, we don't know if the series as a whole converges or diverges.
 \end{enumerate}
+
 %%%%%%%%%%%%%%%%%%% Newpage
 
 \newpage
 
 %%%%%%%%%%%%%%%%%%% Problem 3
-\item
+\item Define the following power series:
+\[f(x)=\sum_{k=0}^\infty x^{2k}=1+x^2+x^4\ldots\quad\quad g(x)=\sum_{k=0}^\infty 3^kx^{2k+1}=x+3x^3+9x^5\ldots\]
+\begin{enumerate}
+\item Find the interval of convergence and a formula for $f(x)$.
+\item Find the interval of convergence and a formula for $g(x)$.
+\item Use your answers from (a) and (b) to find a formula and an interval of convergence for $h(x)=1+x+x^2+3x^3+x^4+9x^5\ldots$.
+\end{enumerate}
+
+\begin{enumerate}
+\item First, let us rearrange the sequence in $f(x)$. We can do this like so:
+\begin{align*}
+x^{2k} &= \left(x^2\right)^k
+\end{align*}
+The series is now in the form of a geometric sequence we know how to find the interval of convergence and a formula for it very easily. For a series of the form $\sum a(r)^{n-1}$ to converge, $-1<r<1$. Thus we can create the inequality:
+\[-1<x^2<1\]
+or,
+\[-1<x<1\]
+Now that we have our endpoints for the interval of convergence, we need to test the endpoints. For the endpoint of $x=1$ we see that:
+\begin{align*}
+\sum_{k=0}^\infty 1^{2k} &= \sum_{k=0}^\infty 1
+\end{align*}
+This obviously goes off to infinity, so the endpoint of $x=1$, diverges. If we take a look at $x=-1$, we see that the sum is
+\begin{align*}
+\sum_{k=0}^\infty (-1)^{2k} &= \sum_{k=0}^\infty (-1)^{k}
+\end{align*}
+This endpoint also diverges because it never homes in on a single number, but keeps bouncing between $-1$ and $1$. Therefore, our interval of convergence for $f(x)$ is $(-1,1)$. To find a formula for $f(x)$, we can use the formula for the sum of an infinite geometric series which states that
+\begin{align*}
+\sum_{k=0}^\infty ar^k=\frac{a}{1-r}
+\end{align*}
+Using this formula, we can find that
+\begin{align*}
+\sum_{k=0}^\infty 1\left(x^2\right)^k &= \frac{1}{1-x^2}
+\end{align*}
+\item To find the interval of convergence and the formula for $g(x)$, we will be using the  same method as in part (a). However, we first have to rearrange the sequence into the form of the geometric series.
+\begin{align*}
+3^kx^{2k+1} &= x3^k\left(x^2\right)^k\\
+&= x\left(3x^2\right)^k
+\end{align*}
+Now that it is a form which resembles a geometric series, we can plug it into the inequality in part (a).
+\[\left|3x^2\right|<1\]
+This simplifies to
+\[-\frac{1}{\sqrt{3}}<x<\frac{1}{\sqrt{3}}\]
+Now we test our endpoints via direct substitution. Substituting $\dfrac{1}{\sqrt{3}}$ provides 
+\begin{align*}
+\sum_{k=0}^\infty 3^k{\left(\frac{1}{\sqrt{3}}\right)}^{2k+1} &= \sum_{k=0}^\infty \frac{1}{\sqrt{3}}
+\end{align*}
+This sequence diverges since it's just a constant addition of a positive number. We can use this to predict the divergence of $x=\dfrac{1}{\sqrt{3}}$ because that will just be the same sequence but the constant addition of $-\frac{1}{\sqrt{3}}$. Thus, the interval of convergence is $(-\frac{1}{\sqrt{3}},\frac{1}{\sqrt{3}}$. We can use our rearranged sequence from before and substitute into the sum of a geometric series like so:
+\begin{align*}
+\sum_{k=0}^\infty x\left(3x^2\right)^k &= \frac{x}{1-3x^2}
+\end{align*}
+\item From the terms given in the problem, we can say that $h(x)=f(x)+g(x)$. Therefore we can find that 
+\begin{align*}
+h(x) &= f(x)+g(x)\\
+&= \frac{1}{1-x^2}+\frac{x}{1-3x^2}
+\end{align*} 
+We can reason from this that the interval of convergence for $h(x)$ is values of $x$ for which both $f(x)$ and $g(x)$ converge. The interval where both $f(x)$ and $g(x)$ converge is $\left(-\dfrac{1}{\sqrt{3}},\dfrac{1}{\sqrt{3}}\right)$.
+\end{enumerate}
 
 %%%%%%%%%%%%%%%%%%% Newpage
 
@@ -89,7 +146,40 @@ Since $1<6$, we know that this series converges.
 
 %Professional Problem
 
-\item \textbf{Professional Problem:}
+\item \textbf{Professional Problem:} Consider the power series $\displaystyle \sum_{n=0}^\infty c_n(x-a)^n$ and suppose $c_n\neq0$ for all $n$. Show: if $\displaystyle \lim_{n\to\infty} \left|\frac{c_n}{c_{n+1}}\right|$ exists and is non-negative, then it is equal to the radius of convergence of the power series; and, if $\displaystyle \lim_{n\to\infty} \left|\frac{c_n}{c_{n+1}}\right|=\infty$, the series converges for all $x$. \\
+\newline
+Let $\displaystyle \lim_{n\to\infty} \dfrac{c_n}{c_n+1}=r$ where $0\le r\le \infty$. If we apply the Ratio Test to the power series $\displaystyle \sum_{n=0}^\infty c_n(x-a)^n$, we receive the result:
+\begin{align*}
+\lim_{n\to\infty} \left|\frac{c_{n+1}(x-a)^{n+1}}{c_n(x-a)^n}\right| &= \lim_{n\to\infty} \left|\frac{c_{n+1}(x-a)}{c_n}\right|\\
+&= \frac{1}{r}\cdot|x-a|
+\end{align*}
+From this simplification of the Ratio Test we can see that for the series to be convergent,
+\begin{align}
+\frac{1}{r}|x-a| &< 1
+\end{align}
+Or in another form:
+\begin{align*}
+|x-a| &< r
+\end{align*}
+Thus, we have proved that $\displaystyle \lim_{n\to\infty} \left|\frac{c_n}{c_{n+1}}\right|$ is the radius of convergence. Because $r$ is always a real, non-negative number, we can ensure that there are no imaginary solutions, where $|x-a|$ would have to be less than a negative number. \\
+However, there are special cases when $r=\infty$ and $r=0$. When $r=\infty$, we can use the limit law
+\begin{center}
+If $\displaystyle \lim_{n\to\infty} a_n=+\infty$, then $\displaystyle \lim_{n\to\infty} \frac{1}{a_n}=0$.
+\end{center}
+In the case of $r=\infty$, we can look back at equation(1) and see that
+\begin{align*}
+\frac{1}{r}|x-a| &= 0
+\end{align*}
+We can infer from this that when $r=\infty$, the interval of convergence is all $x$ because $0<1$ always. Conversely, when $r=0$, we can use the limit law
+\begin{center}
+If $a_n>0$ and $\lim_{n\to\infty} a_n=0$, then $\lim_{n\to\infty} \frac{1}{a_n}=+\infty$.
+\end{center}
+Using equation (1) once more, we can see that for $r=0$,
+\begin{align*}
+\frac{1}{r}|x-a| &= \infty
+\end{align*}
+Infinity is clearly greater than 1 for all $x$, so when $\displaystyle \lim_{n\to\infty} \frac{c_n}{c_n+1}=0$, the power series converges for only one $x$ or does not converge for any $x$.
+
 \end{enumerate}
 
 
