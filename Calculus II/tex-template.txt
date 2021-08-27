@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Yadavalli Written Work X}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(X.\arabic*)}]
+
+\end{enumerate}
+
+
+\end{document}
+
