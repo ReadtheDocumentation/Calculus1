@@ -1,0 +1,142 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage[thinc]{esdiff}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{September 20th, 2021 Written Work 2}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(2.\arabic*)}]
+
+\item The turkey population in Downtown Minneapolis is getting out of control! Let $P(t)$ represent the turkey population after $t$ weeks. The turkey population satisfies the differential equation
+\begin{equation}
+\diff{P}{t} = (0.5)P^{1.5}
+\end{equation}
+\begin{enumerate}
+\item Suppose that there are initially 9 turkeys. Determine the solution to this initial value problem.
+\item Show that there is a number, $D$, such that after $ D$ weeks,
+$P(t)\rightarrow\infty$.
+\end{enumerate}
+
+\begin{enumerate}
+\item Equation (1) is a separable differential equation which can be manipulated into
+\begin{equation}
+\frac{1}{P^{1.5}}\,dP=0.5\,dt
+\end{equation}
+Integrating (2) provides 
+\begin{equation}
+\frac{-2}{\sqrt{P}}+C=0.5t+D
+\end{equation}
+This should simplify to $\displaystyle \frac{-2}{\sqrt{P}}=0.5t+E$. This is an opportune time to find the value of the constant for the particular solution with the initial value of $P(0)=9$ with the new equation $\displaystyle \frac{-2}{\sqrt{P}}-0.5t=E$.
+\begin{align*}
+E &=\frac{-2}{\sqrt{P}}-0.5t\\
+  &=\frac{-2}{\sqrt{9}}-0.5(0)\\
+  &= \frac{-2}{3}
+\end{align*}
+Now that we have the value for the constant, we can continue to solving the equation.
+\begin{align*}
+\frac{-2}{\sqrt{P}}&=0.5t-\frac{2}{3}\\
+\sqrt{P} &= \frac{-2}{0.5t-\frac{2}{3}}\\
+P &= \left( \frac{-2}{0.5t-\frac{2}{3}}\right)^2
+\end{align*}
+The equation above is the solution to the initial value problem.
+\item The problem statement can be simplified to mean that, "If $\displaystyle \lim_{t\to D^-} P(t) = \infty$, then what is $D$?" Because $P = \left( \frac{-2}{0.5t-\frac{2}{3}}\right)^2$, the earlier question asks for when $0.5t-\dfrac{2}{3}=0$ because in a function of the form $\dfrac{A}{x}$, as $x\to0$, $y\to\infty$. Solving this simple equation gives us the vale $\frac{4}{3}$. Therefore, we have determined that $D=\dfrac{4}{3}$.
+\end{enumerate}
+
+\newpage
+
+\item Your dad makes you another cup of chai.  At 10:00 AM, the chai is $98\degree$C. The room is held at a constant temperature of $22\degree$C. When you take your first sip of chai, it is $82\degree$C and the cooling rate is $1\degree$C per minute.  What time did you take your first sip?
+
+\vspace{5pt}
+First, let $T_s=22\degree$C, the surrounding temperature. Then let $T_0$ be defined as $98\degree$C. Next, $T(t_0)=82\degree$C and $T^\prime(t_0)=-1\frac{\degree\textrm{C}}{min.}$. The value of $t_0$ is the time at which the first sip of chai is taken. Using Newton's law of cooling, we can construct the differential equation
+\begin{equation}
+\diff{T}{t} = k(T-T_s)
+\end{equation}
+It is solved like so
+\begin{align*}
+\diff{T}{t}&= k(T-T_s)\\
+\frac{1}{T-T_s}\,dT &= k\,dt\\
+\ln(T-T_s)+C&= kt+D\\
+\ln(T-T_s)&= kt+E\\
+T-T_s &= Ee^{kt}
+\end{align*}
+Thus, we get
+\begin{equation}
+T = Ee^{kt}+T_s
+\end{equation}
+We can solve for $E$ using the initial value of $T(0)=98\degree$C. Plugging in the numbers, provides us with the equation
+\[98=E+22\]
+which simplifies to $E= 76\degree$C. Next, to find $k$, we can use $T^\prime(t_0)=-1\frac{\degree\textrm{C}}{min.}$. Because we know the temperature at $t_0$ and we don't need to know $t_0$, we can use the differential equation to solve for $k$. Plugging in the numbers leaves us with
+\[-1=k(82-22)\]
+which simplifies to $k=\dfrac{-1}{60}$. Now that we know both of our unknowns, $E$ and $k$, we can find the value of $t_0$. Our new equation is 
+\begin{equation}
+T=76e^{-t/60}+22
+\end{equation}
+Plugging in $T=82$, we can solve as so
+\begin{align*}
+76e^{-t/60}+22&= 82 \\
+ 76e^{-t/60}&= 60\\
+e^{-t/60}&= \frac{60}{76}\\
+\frac{-t}{60}&=\ln\left(\frac{15}{19}\right) \\
+t&= -60\ln\left(\frac{15}{19}\right)\approx 14\textrm{min.}
+\end{align*}
+The first sip of chai was taken approximately 14 minutes after it was made.
+
+\newpage
+
+\item \textbf{Professional Problem Skills Practice:}
+
+\vspace{10pt}
+\begin{enumerate}
+
+\item The differential equation $\diff{y}{t} = 2-\dfrac{y}{30}=\dfrac{60-y}{30}$ is separable. Thus, 
+\begin{align*}
+\int \frac{30}{60-y}\,dy &= \int1\,dt\\
+-30\ln(|60-y|)+C &= t+D\\
+\ln(|60-y|) &= \frac{-t}{30}+E\\
+|60-y| &= e^{E-(t/30)} = Fe^{-t/30}\\
+60-y&=Ge^{-t/30}
+\end{align*}
+Finally, we get $y=60-He^{-t/30}$ as the general solution.\\
+
+Since $y(0)=0$, we can find H like so:
+\begin{align*}
+0&=60-He^0\\
+&= 60-H \Rightarrow H=60
+\end{align*}
+Since we have solved for $H$, the particular solution is 
+\begin{equation}
+y=60-60e^{-t/30}
+\end{equation}
+In this problem, the constant are constantly changing because the constants themselves are being mutated whether through additive, multiplicative, or exponential methods. For example, $E=C+D$. The different letters are used for the "same" constant to signify that we note the changes to it, although it won't affect the overall particular solution.\\
+
+
+
+\item To find how long it will take for new bills to account for at least half of the currency in circulation, we must solve for $t$ if
+\[30\ge60\left(1-e^{-t/30}\right)\]
+\end{enumerate}
+This can be solved like so:
+\begin{align*}
+\frac{1}{2}&\ge 1-e^{-t/30}\\
+&\le e^{-t/30}\\
+\ln\left(\frac{1}{2}\right) &\le \frac{-t}{30}\\
+t&\le 30\ln(2)\approx 20.79
+\end{align*}
+Because the exact moment when the amount of new currency overtakes the old currency is not a whole number, we must round up to the next day. This is because the department of the treasury only replaces money one per day, effectively adding all the accumulated new currency from yesterday into the economy all at once. 
+\end{enumerate}
+
+\end{document}
+

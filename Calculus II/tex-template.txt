@@ -7,13 +7,15 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{gensymb}
+\usepackage[thinc]{esdiff}
 
 \geometry{letterpaper, portrait, margin=1in}
 \graphicspath{ {images/} }
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{Keerthik Muruganandam}
-\rhead{Yadavalli Written Work X}
+\rhead{xxx xxth, 2021 Written Work X}
 
 \begin{document}
 

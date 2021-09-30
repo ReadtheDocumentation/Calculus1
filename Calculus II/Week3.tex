@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{gensymb}
+\usepackage[thinc]{esdiff}
+
+\geometry{letterpaper, portrait, margin=1in}
+\graphicspath{ {images/} }
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Keerthik Muruganandam}
+\rhead{Sep. 29th, 2021 Written Work 3}
+
+\begin{document}
+
+\begin{enumerate}[label=\textbf{(3.\arabic*)}]
+
+\item Give the general solution for the following differential equations:
+\begin{enumerate}
+\item $4y^{\prime\prime}-12y^\prime+9y=0$
+\item $4y^{\prime\prime}-4y^\prime+5y=0$
+\item What is the particular solution to part (b) if $y(\pi)=e^{\pi/2}$ and $y^\prime (\pi)=0$.
+\end{enumerate}
+
+\begin{enumerate}
+\item This is homogeneous, first order DE, so the auxiliary equation is 
+\[4r^2-12r+9\]
+The solution to this is clearly 
+\[r=\frac{3}{2}\]
+Because the auxiliary equation has a repeated root, the general solution is 
+\[\alpha e^{\frac{3}{2}x}+\beta xe^{\frac{3}{2}x}\]
+
+\item The auxiliary equation for this differential equation is
+\[4r^2-4r+5=0\]
+The solution to this is	
+\[r=\frac{1}{2}\pm i\]
+Because the solution is in the form of a complex conjugate, we have to express the solution using the form 
+\[y = e^{\frac{1}{2}x}[c_1\cos(x)+c_2\sin(x)]\]
+
+\item Using the first initial condition, we can do the following arithmetic:
+\begin{align*}
+e^{\pi/2} &= e^{\frac{1}{2}\pi}[c_1\cos(\pi)+c_2\sin(\pi)]\\
+&= e^{\pi/2}[-c_1]\\
+c_1 &= -1
+\end{align*}
+We now have the new equation $y = e^{\frac{x}{2}}[c_2\sin(x)-\cos(x)]$. Computing, the derivative with the product rule, we yield
+\begin{align*}
+\diff{y}{x}&=\diff{}{x}(e^{x/2})[c_2\sin(x)-\cos(x)]+\diff{}{x}[c_2\sin(x)-\cos(x)]e^{x/2}\\
+&=\frac{1}{2}e^{x/2}[c_2\sin(x)-\cos(x)]+e^{x/2}[\sin(x)+c_2\cos(x)]
+\end{align*}
+Substitution solves for $c_2$ like so 
+\begin{align*}
+0&= \frac{1}{2}e^{\pi/2}[c_2\sin(\pi)-\cos(\pi)]+e^{\pi/2}[\sin(\pi)+c_2\cos(\pi)]\\
+&= e^{\pi/2}(\frac{1}{2}-c_2)\\
+c_2 &= \frac{1}{2}
+\end{align*}
+Now, we know $c_2$ so we can determine that the specific solution is
+\[y = e^{x/2}[\frac{1}{2}\sin(x)-\cos(x)]\]
+\end{enumerate}
+
+\newpage
+
+\item Solve the initial-value problem $x^2\diff{y}{x}-y=2e^{1/x}$, $y(1)=-e$.
+
+First, we must put this first-order linear differential equation into standard form. The standard form is
+\[y^{\prime} - \frac{y}{x^2}=\frac{2e^{1/x}}{x^2}\]
+To find the integrating factor, we must find the value of $\displaystyle e^{\int -\frac{1}{x^2}\,dx}$. This is integration is simple to complete, and yields $\dfrac{1}{x}$. Thus, the function is transformed into
+\[\int\diff{ }{x}(e^{1/x}y)\,dx=\int\frac{2e^{2/x}}{x^2}\,dx\]
+To integrate the left hand side, use the $u$-substitution of $\frac{2}{x}$. The value of $du$ is $\dfrac{-2}{x^2}$. The left hand side is transformed into 
+\[\int -e^u\,du\]
+which is equal to $-e^{2/x}$. The equation is now
+\[e^{1/x}y=-e^{2/x}+C\]
+Before isolating $y$, it is easier to solve for the value of $C$ like so
+\begin{align*}
+e^{1/1}(-e)&=-e^{2/1}+C\\
+-e^2 &= -e^2+C\\
+0 &= C
+\end{align*}
+Isolating $y$ is simply done.
+\begin{align*}
+y &= \frac{-e^{2/x}}{e^{1/x}}\\
+&= -(e^{\frac{2}{x}-\frac{1}{x}})\\
+&= -e^{1/x}
+\end{align*}
+The particular solution for this initial-value problem is 
+\[y=-e^{1/x}\]
+
+\newpage
+
+\item \textbf{Professional Problem: } Chocolate factory tank contains 100 L of pure chocolate. The mixture of crushed Oreos and chocolate is added at 5 L/min. The mixed tank is drained at a rate of 3 L/min. Find and solve the initial value problem. Also, if after 20 minutes, the tank contains 32 kg of Oreo, find the concentration $M$ of Oreos.
+
+We know that the rate of change of the amount Oreos in the tank is $\diff{y}{t}=[\textrm{rate in}]-[\textrm{rate out}]$. The amount of Oreos entering the tank is the concentration of Oreos, $M$, multiplied by the rate at which the mixture enters the tank. The rate out is the concentration of Oreos in the tank multiplied by the rate out. This looks like 
+\[\diff{y}{t} = [M\cdot5]-\left[\frac{y}{100+2t}\cdot3\right]\]
+The problem in standard form looks like 
+\[y^\prime+\frac{3y}{100+2t}=5M\]
+To solve, this we need to solve $\displaystyle e^{\int \frac{3}{100+2t}\,dt}$ which is $(100+2t)^{3/2}$. Our new equation is 
+\[\diff{ }{t}((100+2t)^{3/2}y) = 5(100+2t)^{3/2}M\]
+Solving this by integrating both sides yields
+\[(100+2t)^{3/2}y = (100+2t)^{5/2}M+C\]
+Using the initial condition $y(0)=0$, we can isolate C. After substitution, we find that 
+\[C = -(100)^{5/2}M\]
+Isolating $y$ provides the solved equation
+\begin{align*}
+y &= \frac{\frac{2}{5}(100+2t)^{5/2}M-(100)^{5/2}M}{(100+2t)^{3/2}}\\
+&= \frac{\frac{3}{5}(100+2t)^{5/2}M}{(100+2t)^{3/2}}
+\end{align*}
+To solve the initial value problem of $y(20)=32$, we should isolate $M$. The isolation of $M$ is that 
+\[\frac{(100+2t)^{3/2}y}{\frac{3}{5}(100+2t)^{5/2}}=M\]
+This is a bit of a hairy equation, so plugging these answers into WolframAlpha is probably the right way to go. Plugging these in provides
+\[C = \frac{(100+2(20))^{3/2}(32)}{\frac{3}{5}(100+2(20)^{5/2}}=\frac{8}{21}\]
+The concentration of Oreos to melted chocolate is $\frac{8}{21}$ kg/L.
+\end{enumerate}
+
+
+\end{document}
+

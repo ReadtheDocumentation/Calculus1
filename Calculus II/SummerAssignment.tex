@@ -1,4 +1,4 @@
-\documentclass{article}
+ 	\documentclass{article}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
@@ -15,6 +15,19 @@
 \fancyhf{}
 \lhead{Keerthik Muruganandam}
 \rhead{8/15/21 Summer Assignment}
+\makeatletter
+% This command ignores the optional argument for itemize and enumerate lists
+\newcommand{\inlineitem}[1][]{%
+\ifnum\enit@type=\tw@
+    {\descriptionlabel{#1}}
+  \hspace{\labelsep}%
+\else
+  \ifnum\enit@type=\z@
+       \refstepcounter{\@listctr}\fi
+    \quad\@itemlabel\hspace{\labelsep}%
+\fi}
+\makeatother
+
 
 \begin{document}
 
@@ -23,16 +36,16 @@
 
 
 \vspace{5pt}
-First, let us define $y=\dfrac{2}{3}e^x+e^{-2x}$ as Equation 1, or $(1)$, $y^\prime+2y=2e^x$ as Equation 2, or $(2)$. Next, the value of $y^\prime$ needs to be found. Because both terms in the function are very similar to the natural exponential function $e^x$, this function is relatively simple to differentiate.
+First, $y=\dfrac{2}{3}e^x+e^{-2x}$ be defined as Equation 1, or $(1)$, and $y^\prime+2y=2e^x$ as Equation 2, or $(2)$. Next, the value of $y^\prime$ needs to be found. Because both terms of (1) are very similar to the natural exponential function $e^x$, Equation 1 is relatively simple to differentiate.
 \begin{align*}
 y &= \frac{2}{3}e^x+e^{-2x}\\
 y^\prime &= \frac{2}{3}\diff{}{x}(x)e^x+\diff{ }{x}(-2x)e^{-2x}\\
 &= \frac{2}{3}e^x-2e^{-2x}
 \end{align*}
 
-Substituting the values for $y^\prime$ and $y$ that we found in the first step into Equation 2 provides the new equation:
+Substituting these values for $y^\prime$ and $y$ into Equation 2 provides the new equation:
 \[\frac{2}{3}e^x-2e^{-2x} + 2\left(\frac{2}{3}e^x+e^{-2x}\right) =  2e^x\] 
-To verify this equation, all that is needed is the simplification of the left hand side, which is done below.
+To that Equation 1 is a solution of Equation 2, all that is needed is the simplification of the left hand side of the new equation, which is done below.
 \begin{align*}
 \frac{2}{3}e^x-2e^{-2x} + 2\left(\frac{2}{3}e^x+e^{-2x}\right) &= \frac{2}{3}e^x-2e^{-2x} +  \frac{4}{3}e^x+2e^{-2x}\\
 &= \frac{6}{3}e^x\\
@@ -46,7 +59,7 @@ Thus, it has been shown that $y=\dfrac{2}{3}e^x+e^{-2x}$ is a solution of the di
 
 
 \vspace{5pt}
-Again, the first step needs to be finding the value of $y^\prime$. But before that, the initial value requirement needs to be addressed. This can be accomplished as follows:
+Again, the first step is finding the value of $y^\prime$. But before that, the initial value requirement needs to be addressed. The requirement can be validated as follows:
 \begin{align*}
 y(\pi)&=0\\
 -\pi\cos\pi-\pi &= 0\\
@@ -86,7 +99,7 @@ With this, $y = -t\cos t - t$ has been verified as a solution of the provided in
 
 \item Using a similar approach to the one used in (a), we just need to find the values of $P$ for which the derivative is negative. First, the P outside of the parentheses ensures that a population below 0 will continually keep decreasing. The expression inside of the parentheses can be used to infer that a population above 4200 will start decreasing because at that point, $1-\dfrac{P}{4200}$ will become negative. The values for which the population is decreasing are \[(-\infty, 0)\cup (4200,\infty)\]
 
-\item We can take the phrase to equilibrium solutions to mean where the value of the derivative is a 0. This only occurs when one of the terms of the differential equation are equal to 0. In this case, the terms are $P$ and $\left(1-\dfrac{P}{4200}\right)$. Some quick mental math results in the values of 0 and 4200 and population values where the population is neither increasing nor decreasing.
+\item We can take the phrase to equilibrium solutions to mean where the value of the derivative is a 0. This only occurs when one of the factors of the differential equation are equal to 0. In this case, the relevant factors are $P$ and $\left(1-\dfrac{P}{4200}\right)$. Some quick mental math results in the values of 0 and 4200 and population values where the population is neither increasing nor decreasing.
 \end{enumerate}
 
 \newpage
@@ -118,6 +131,36 @@ Now we can see that the constant solutions are at $y=0, 5, 1$.
 
 
 \item Match the differential equations with the solution graphs labeled I-IV. Give reasons for your choices. 
+\begin{enumerate}[label  = (\alph*)]
+\item $y^\prime = 1+x^2+y^2$ \qquad\qquad\qquad \inlineitem $y^\prime = xe^{-x^2-y^2}$    \item $y^\prime = \dfrac{1}{1+e^{x^2+y^2}}$ \qquad\qquad\qquad \inlineitem $y^\prime = \sin(xy)\cos(xy)$
+\begin{figure}[H]
+\centering
+\includegraphics{iii}\\
+\includegraphics{iiiiv}
+\end{figure}
+\end{enumerate}
+
+\bigskip
+
+Starting off by analyzing (a), note that the derivative is unbounded and that its solution graph should also reflect that behavior via the curve becoming "steeper" the farther away the point $(x,y)$ on the solution graph is from the origin. The only solution that reflects this behavior is III. \textbf{Therefore, the solution graph of (a) is III.}
+
+
+Jumping to (d), it is immediately evident that its solution graph is II because the derivative of II must always be 0 no matter what $x$ is, as long as $y=0$. Both (b) and (c) do not fulfill this requirement. For (b) this is because the value of $y$ is only used as an exponent, meaning that even if $y=0$, the value of the overall expression will never be 0. It is the same case for (c). \textbf{Therefore, the solution graph of (d) is II.}
+
+\bigskip
+
+Moving on, the form of (c) is similar to the derivative of $\tan^{-1}(x)$. The solution graph of the latter looks like 
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.55]{arctan}
+\end{figure}
+This behavior almost exactly resembles that of IV, suggesting that the solution to (c) is IV. However, we need to confirm. The numerator and denominator of (c), $1$ and $1+e^{x^2+y^2}$, will always be positive no matter the value of $x$ and $y$. In the latter case it is because the exponent of a positive value--$e$--will always return positive. A common pitfall would be to notice that the $y$-value of I is always positive and assume that I is correct. Yet, the \textit{derivative} is positive, not the  output of the equation. What that means graphically is that from left to right, the curve on the graph must always be going up. \textbf{Therefore, the solution graph of (c) is IV.}
+
+\bigskip
+
+Thus, the only solution graph and differential equation left are I and (b). \textbf{Therefore the solution graph of (b) is I.}
+
+
 \end{enumerate}
 
 
